@@ -1,0 +1,163 @@
+:root {
+  --primary-text-color: #000000; /* Black */
+  --secondary-text-color: #999999; /* Grey */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--primary-text-color);
+}
+
+header {
+  margin-bottom: auto;
+}
+
+.navbar_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.navbar_title {
+  text-decoration: none;
+  color: var(--primary-text-color);
+  font-weight: 500;
+}
+
+.navbar_menu {
+  display: flex;
+  list-style-type: none;
+  gap: 16px;
+}
+
+.navbar_links {
+  text-decoration: none;
+  color: var(--primary-text-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.image_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  padding: 5vw 0px;
+}
+
+.image {
+  padding: 5vw 0px;
+  width: 80%;
+}
+
+.popup_image {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
+  display: none;
+}
+
+.popup_image span {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.popup_image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.img_yousri {
+  max-width: 100%;
+}
+
+.about_container {
+  display: flex;
+  flex-direction: column;
+  width: min(80%, 250px);
+  margin-inline: auto;
+}
+
+.about_description {
+  margin-top: 24px;
+}
+
+footer {
+  text-align: right;
+  margin-top: auto;
+  padding: 16px;
+  font-size: 10px;
+  color: var(--secondary-text-color);
+}
+
+@media (min-width: 48em) {
+  header {
+    position: fixed;
+    width: 100vw;
+  }
+
+  main {
+    margin-block: auto;
+  }
+
+  .image_container {
+    height: 60vh !important;
+    width: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0px;
+    padding-left: 30vh;
+    overflow: visible;
+  }
+
+  .image {
+    padding: 0px;
+    height: 100%;
+    width: auto;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .image_container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .image_container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  footer {
+    margin-top: none;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+  }
+}
