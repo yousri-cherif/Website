@@ -96,6 +96,7 @@ body {
 
 .img_yousri {
   max-width: 100%;
+  height: auto;
 }
 
 .about_container {
@@ -107,6 +108,14 @@ body {
 
 .about_description {
   margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about_links {
+  color: blue;
+  text-decoration: none;
 }
 
 footer {
