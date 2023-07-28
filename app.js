@@ -1,5 +1,20 @@
-let currentPage = document.body.id;
-if (currentPage == "index") {
+function getCurrentYear() {
+  try {
+    return new Date().getFullYear().toString();
+  } catch (error) {
+    console.error("Error while getting the current year:", error);
+    return ""; // Fallback to empty string if an error occurs
+  }
+}
+
+function setFooterText() {
+  const footerElement = document.getElementById("copyright_text");
+  const currentYear = getCurrentYear();
+  const footerText = `© ${currentYear} Yousri cherif. All rights reserved.`;
+  footerElement.textContent = footerText;
+}
+
+function addPopupImageBehavior() {
   document.querySelectorAll(".image_container img").forEach((image) => {
     image.onclick = () => {
       document.querySelector(".popup_image").style.display = "block";
@@ -12,13 +27,11 @@ if (currentPage == "index") {
   };
 }
 
-try {
-  var date = new Date();
-  var footer_text =
-    "© " + date.getFullYear() + " Yousri cherif. All rights reserved.";
-  document.getElementById("copyright_text").textContent = footer_text;
-} catch (error) {
-  console.error("Error, enable to get date", error);
-  document.getElementById("copyright_text").innerHTML =
-    "© Yousri cherif. All rights reserved.";
-}
+document.addEventListener("DOMContentLoaded", () => {
+  setFooterText();
+
+  const currentPage = document.body.id;
+  if (currentPage === "index") {
+    addPopupImageBehavior();
+  }
+});
