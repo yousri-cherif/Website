@@ -13,6 +13,9 @@ body {
   font-family: monospace;
   font-size: 16px;
   color: var(--primary-text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -24,6 +27,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
+  font-size: 18px;
 }
 
 .navbar_title {
@@ -43,10 +47,10 @@ header {
   color: var(--primary-text-color);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+.underline {
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
 }
 
 .image_container {
