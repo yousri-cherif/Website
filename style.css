@@ -141,7 +141,7 @@ footer {
   }
 
   .image_container {
-    height: 60vh !important;
+    height: 65vh !important;
     width: auto;
     flex-direction: row;
     justify-content: flex-start;
