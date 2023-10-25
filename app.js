@@ -10,7 +10,7 @@ function getCurrentYear() {
 function setFooterText() {
   const footerElement = document.getElementById("copyright_text");
   const currentYear = getCurrentYear();
-  const footerText = `© ${currentYear} Yousri cherif. All rights reserved.`;
+  const footerText = `© ${currentYear} Yousri Cherif. All rights reserved.`;
   footerElement.textContent = footerText;
 }
 
