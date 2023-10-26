@@ -34,7 +34,6 @@ header {
 .navbar_title {
   text-decoration: none;
   color: var(--primary-text-color);
-  font-weight: 500;
 }
 
 .navbar_menu {
