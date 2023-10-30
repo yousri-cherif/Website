@@ -163,3 +163,7 @@ footer {
     right: 0px;
   }
 }
+
+#page-not-found {
+  background-color: blue;
+}
