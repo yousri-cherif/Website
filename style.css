@@ -34,7 +34,6 @@ header {
 .navbar_title {
   text-decoration: none;
   color: var(--primary-text-color);
-  font-weight: 500;
 }
 
 .navbar_menu {
@@ -126,7 +125,7 @@ header {
 footer {
   text-align: right;
   margin-top: auto;
-  padding: 16px;
+  padding: 24px;
   font-size: 10px;
   color: var(--secondary-text-color);
 }
@@ -163,4 +162,8 @@ footer {
     bottom: 0px;
     right: 0px;
   }
+}
+
+#page-not-found {
+  background-color: blue;
 }
