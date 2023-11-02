@@ -61,11 +61,11 @@ header {
   align-items: center;
   width: 100vw;
   height: auto;
-  padding: 5vw 0px;
+  padding: 5vw 0;
 }
 
 .image {
-  padding: 5vw 0px;
+  padding: 5vw 0;
   width: 80%;
 }
 
@@ -146,13 +146,13 @@ footer {
     width: auto;
     flex-direction: row;
     justify-content: flex-start;
-    padding: 0px;
+    padding: 0;
     padding-left: 30vh;
     overflow: visible;
   }
 
   .image {
-    padding: 0px;
+    padding: 0;
     height: 100%;
     width: auto;
   }
@@ -160,8 +160,8 @@ footer {
   footer {
     margin-top: 0;
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    bottom: 0;
+    right: 0;
   }
 }
 
