@@ -1,6 +1,7 @@
 :root {
   --primary-text-color: #000000; /* Black */
   --secondary-text-color: #999999; /* Grey */
+  --error-page-background: #0827f5; /* Blue */
 }
 
 * {
@@ -118,7 +119,7 @@ header {
 }
 
 .about_links {
-  color: blue;
+  color: var(--error-page-background);
   text-decoration: none;
 }
 
@@ -165,5 +166,24 @@ footer {
 }
 
 #page-not-found {
-  background-color: blue;
+  background-color: var(--error-page-background);
+  color: white;
+}
+
+#page-not-found .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* This centers content vertically on the screen */
+  text-align: center; /* Center text within each element */
+}
+
+#page-not-found .title {
+  padding: 24px;
+}
+
+#page-not-found .link {
+  color: white;
+  text-decoration: none underline;
 }
