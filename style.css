@@ -17,7 +17,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-y: hidden;
 }
 
 header {
@@ -136,6 +135,10 @@ footer {
   header {
     position: fixed;
     width: 100vw;
+  }
+
+  body {
+    overflow-y: hidden;
   }
 
   main {
