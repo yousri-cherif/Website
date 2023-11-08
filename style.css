@@ -126,7 +126,7 @@ header {
 footer {
   text-align: right;
   margin-top: auto;
-  padding: 24px;
+  padding: 16px;
   font-size: 10px;
   color: var(--secondary-text-color);
 }
