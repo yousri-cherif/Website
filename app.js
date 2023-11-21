@@ -37,12 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function transformScroll(event) {
-  if (!event.deltaY) {
-    return;
-  }
+  const currentPage = document.body.id;
+  if (currentPage === "index") {
+    if (!event.deltaY) {
+      return;
+    }
 
-  event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
-  event.preventDefault();
+    event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
+    event.preventDefault();
+  }
 }
 
 var element = document.scrollingElement || document.documentElement;
