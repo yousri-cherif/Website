@@ -25,6 +25,11 @@ function addPopupImageBehavior() {
   document.querySelector(".popup_image span").onclick = () => {
     document.querySelector(".popup_image").style.display = "none";
   };
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      document.querySelector(".popup_image").style.display = "none";
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
