@@ -30,7 +30,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 16px;
+  padding-top: 12px;
   width: 90%;
   font-size: clamp(18px, 2.5vw + 0.1rem, 32px);
   font-family: "Noto Sans";
