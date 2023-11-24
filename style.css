@@ -87,6 +87,7 @@ header {
   font-size: 32px;
   cursor: pointer;
   z-index: 100;
+  background: white;
 }
 
 .popup_image img {
