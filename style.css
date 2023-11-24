@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: monospace;
+  font-family: "Noto Sans";
   font-size: 16px;
   color: var(--primary-text-color);
   display: flex;
@@ -21,15 +21,19 @@ body {
 
 header {
   margin-bottom: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  padding-inline: 24px;
-  font-size: 18px;
+  padding-top: 16px;
+  width: 90%;
+  font-size: clamp(18px, 2.5vw + 0.1rem, 32px);
+  font-family: "Noto Sans";
 }
 
 .navbar_title {
@@ -66,7 +70,7 @@ header {
 
 .image {
   padding: 5vw 0;
-  width: 80%;
+  width: 90%;
 }
 
 .popup_image {
@@ -136,6 +140,12 @@ footer {
   header {
     position: fixed;
     width: 100vw;
+  }
+
+  .navbar_container {
+    width: 100%;
+    padding-top: 8px;
+    padding-inline: 16px;
   }
 
   body {
