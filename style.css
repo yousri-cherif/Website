@@ -116,6 +116,30 @@ header {
   margin-inline: auto;
 }
 
+.ons_container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  max-width: 70vw;
+  max-height: 70vh;
+  margin-inline: auto;
+  aspect-ratio: 5/8;
+}
+
+.img_ons {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.date_ons {
+  text-align: end;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  font-family: monospace;
+}
+
 .about_description {
   margin-top: 24px;
   display: flex;
