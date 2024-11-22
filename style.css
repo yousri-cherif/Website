@@ -32,8 +32,9 @@ header {
   justify-content: space-between;
   padding-top: 12px;
   width: 90%;
-  font-size: clamp(20px, 1.6vw + 0.1rem, 32px);
-  font-family: "Noto Sans";
+  font-size: clamp(20px, 3vw + 0.1rem, 36px);
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: 1px;
 }
 
 .navbar_title {
