@@ -32,7 +32,7 @@ header {
   justify-content: space-between;
   padding-top: 12px;
   width: 90%;
-  font-size: clamp(20px, 3vw + 0.1rem, 36px);
+  font-size: clamp(20px, 3vw + 0.1rem, 47px);
   font-family: "DM Sans", sans-serif;
   font-weight: 500;
   letter-spacing: normal;
@@ -174,7 +174,7 @@ footer {
   .navbar_container {
     width: 100%;
     padding-top: 8px;
-    padding-inline: 16px;
+    padding-inline: 24px;
     font-weight: 400;
     letter-spacing: 1px;
   }
