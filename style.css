@@ -48,6 +48,7 @@ header {
 .navbar_menu {
   display: flex;
   list-style-type: none;
+  font-size: clamp(20px, 1vw + 0.1rem, 28px);
   gap: 16px;
 }
 
