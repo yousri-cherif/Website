@@ -218,3 +218,34 @@ footer {
   -webkit-user-select: none;
   -o-user-select: none;
 }
+
+/* PORTFOLIO */
+
+.portfolio-desktop,
+.portfolio-mobile {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* PDF */
+.portfolio-desktop iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Default: desktop */
+.portfolio-mobile {
+  display: none;
+}
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+  .portfolio-desktop {
+    display: none;
+  }
+
+  .portfolio-mobile {
+    display: flex;
+  }
+}
