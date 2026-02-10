@@ -242,10 +242,22 @@ footer {
 /* Mobile behavior */
 @media (max-width: 768px) {
   .portfolio-desktop {
-    display: none;
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
   }
 
   .portfolio-mobile {
     display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  body {
+    overflow: hidden;
   }
 }
