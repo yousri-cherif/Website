@@ -121,48 +121,39 @@ body {
   white-space: nowrap;
 }
 
-/* ---------- Hover parentheses ----------
-   Drawn outside the word (absolute), so nothing around it moves. */
-
-.brackets {
-  position: relative;
-}
+/* ---------- Parentheses: (Index) ----------
+   The ( ) are part of the text line, always there but invisible.
+   Showing them only changes visibility, so they align with the text
+   and nothing around them moves. */
 
 .brackets::before,
 .brackets::after {
-  position: absolute;
-  top: 0;
+  visibility: hidden;
   font-style: normal;
   font-weight: var(--font-weight-regular);
 }
 
 .brackets::before {
-  right: 100%;
+  content: "(" / "";
   margin-right: var(--bracket-gap);
 }
 
 .brackets::after {
-  left: 100%;
+  content: ")" / "";
   margin-left: var(--bracket-gap);
 }
 
-/* Current page: always in ( ) */
-.brackets[aria-current="page"]::before {
-  content: "(";
-}
-
+/* Current page: always visible */
+.brackets[aria-current="page"]::before,
 .brackets[aria-current="page"]::after {
-  content: ")";
+  visibility: visible;
 }
 
-/* Hover: ( ) on any link, mouse only */
+/* Hover: mouse only */
 @media (hover: hover) {
-  .brackets:hover::before {
-    content: "(";
-  }
-
+  .brackets:hover::before,
   .brackets:hover::after {
-    content: ")";
+    visibility: visible;
   }
 }
 

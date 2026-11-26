@@ -30,8 +30,8 @@ The Figma file (Website 2.0) is the visual reference.
 - There is no Close button anywhere on the site.
 
 ## Nav
-- Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma, 40px apart) at the center, "Photographer" on the right.
-- Links get parentheses on hover, and the current page keeps them: (Index). They are drawn outside the word, so nothing moves.
+- Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma, 32px apart plus the invisible parentheses) at the center, "Photographer" on the right.
+- Index and Info get parentheses on hover, and the current page keeps them, also in the mobile menu: (Index). Never on the name. The parentheses are part of the text line, always there but invisible until shown, so they align with the text and nothing moves.
 - Mobile: the name on the left and `Index, Info` on the right.
 - The name is in medium weight (500). The current page in the nav is medium italic (tokens `--nav-current-weight` and `--nav-current-style`). The hovered project in Index is italic.
 

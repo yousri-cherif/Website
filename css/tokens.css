@@ -60,7 +60,7 @@
   --space-stage: 87px;        /* Home image distance from top and bottom */
 
   /* ---------- Components ---------- */
-  --nav-links-gap: 40px;      /* space between Index and Info, room for ( ) */
+  --nav-links-gap: 32px;      /* space between Index and Info (plus the invisible parentheses) */
   --bracket-gap: 1px;         /* space between a word and its hover ( ) */
 
   /* Home counter that follows the mouse. White + difference = black on white,
