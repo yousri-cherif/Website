@@ -1,6 +1,8 @@
-/* Redesign 2026. Spec: REDESIGN.md
-   Layout and components only: no raw values here.
-   To change sizes, spacing, font or colors, edit tokens.css. */
+/* =========================================================
+   SITE STYLES
+   Layout and components. Every value comes from tokens.css.
+   Spec: REDESIGN.md
+   ========================================================= */
 
 @import url("tokens.css");
 
@@ -39,7 +41,11 @@ button {
   cursor: pointer;
 }
 
-/* ---------- Text styles ---------- */
+ul {
+  list-style: none;
+}
+
+/* ---------- Base ---------- */
 
 body {
   font-family: var(--font-family);
@@ -52,42 +58,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.label {
-  font-size: var(--text-heading-size);
-  line-height: var(--text-heading-leading);
-  font-weight: var(--font-weight-strong);
+::selection {
+  color: var(--color-selection-text);
+  background: var(--color-selection-background);
 }
-
-.nav {
-  font-size: var(--text-nav-size);
-  line-height: var(--text-nav-leading);
-}
-
-.nav__toggle,
-.menu {
-  font-size: var(--text-button-size);
-  line-height: var(--text-button-leading);
-}
-
-.bottom {
-  font-size: var(--text-caption-size);
-  line-height: var(--text-caption-leading);
-}
-
-.is-active {
-  font-style: var(--font-style-highlight);
-}
-
-.nav__name {
-  font-weight: var(--font-weight-strong);
-}
-
-[aria-current="page"] {
-  font-weight: var(--nav-current-weight);
-  font-style: var(--nav-current-style);
-}
-
-/* ---------- Grid ---------- */
 
 .grid {
   display: grid;
@@ -104,13 +78,16 @@ body {
   left: 0;
   right: 0;
   z-index: 10;
-  padding-top: var(--space-margin);
   align-items: start;
+  padding-top: var(--space-margin);
+  font-size: var(--text-nav-size);
+  line-height: var(--text-nav-leading);
 }
 
 .nav__name {
   grid-column: 1 / span 4;
   justify-self: start;
+  font-weight: var(--name-weight);
 }
 
 .nav__links {
@@ -121,10 +98,28 @@ body {
   white-space: nowrap;
 }
 
+.nav__role {
+  grid-column: 9 / span 4;
+  justify-self: end;
+}
+
+[aria-current="page"] {
+  font-weight: var(--nav-current-weight);
+  font-style: var(--nav-current-style);
+}
+
+/* Shown on small screens only */
+.nav__toggle,
+.menu {
+  display: none;
+  font-size: var(--text-button-size);
+  line-height: var(--text-button-leading);
+}
+
 /* ---------- Parentheses: (Index) ----------
-   The ( ) are part of the text line, always there but invisible.
-   Showing them only changes visibility, so they align with the text
-   and nothing around them moves. */
+   The ( ) are part of the text line, always there but hidden.
+   Showing them only changes visibility, so they sit on the
+   text line and nothing around them moves. */
 
 .brackets::before,
 .brackets::after {
@@ -143,13 +138,11 @@ body {
   margin-left: var(--bracket-gap);
 }
 
-/* Current page: always visible */
 .brackets[aria-current="page"]::before,
 .brackets[aria-current="page"]::after {
   visibility: visible;
 }
 
-/* Hover: mouse only */
 @media (hover: hover) {
   .brackets:hover::before,
   .brackets:hover::after {
@@ -157,55 +150,7 @@ body {
   }
 }
 
-/* ---------- Counter cursor (Home, mouse only) ---------- */
-
-.cursor {
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .home {
-    cursor: none;
-  }
-
-  /* Normal cursor over the nav and the open menu (small windows) */
-  .home .nav,
-  .home .menu {
-    cursor: default;
-  }
-
-  .home .counter {
-    display: none;
-  }
-
-  .cursor {
-    position: fixed;
-    z-index: 20;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    font-size: var(--text-cursor-size);
-    line-height: var(--text-cursor-leading);
-    color: var(--cursor-color);
-    mix-blend-mode: var(--cursor-blend);
-    white-space: nowrap;
-  }
-
-  .cursor.is-visible {
-    display: block;
-  }
-}
-
-.nav__role {
-  grid-column: 9 / span 4;
-  justify-self: end;
-}
-
-.nav__toggle,
-.menu {
-  display: none;
-}
-
-/* ---------- Bottom bar (counter, ©) ---------- */
+/* ---------- Bottom bar: counter, © ---------- */
 
 .bottom {
   position: fixed;
@@ -213,6 +158,8 @@ body {
   left: var(--space-margin);
   right: var(--space-margin);
   pointer-events: none;
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-leading);
 }
 
 .bottom--center {
@@ -244,7 +191,44 @@ body {
   object-fit: contain;
 }
 
-/* ---------- Content pages (Index, Info) ---------- */
+/* Counter cursor: replaces the mouse pointer on Home.
+   Touch screens keep the counter at the bottom instead. */
+.cursor {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home {
+    cursor: none;
+  }
+
+  .home .nav,
+  .home .menu {
+    cursor: default;
+  }
+
+  .home .counter {
+    display: none;
+  }
+
+  .cursor {
+    position: fixed;
+    z-index: 20;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-size: var(--text-cursor-size);
+    line-height: var(--text-cursor-leading);
+    color: var(--cursor-color);
+    mix-blend-mode: var(--cursor-blend);
+  }
+
+  .cursor.is-visible {
+    display: block;
+  }
+}
+
+/* ---------- Index and Info ---------- */
 
 .page {
   padding-top: var(--space-page-top);
@@ -264,12 +248,17 @@ body {
 .projects {
   grid-column: var(--content-column-start) / -1;
   grid-row: 1;
-  list-style: none;
 }
 
 .projects li {
   width: fit-content;
   cursor: default;
+}
+
+@media (hover: hover) {
+  .projects li:hover {
+    font-style: var(--project-hover-style);
+  }
 }
 
 .info {
@@ -284,9 +273,16 @@ body {
   margin-top: var(--space-paragraph);
 }
 
-/* ---------- Mobile (breakpoint also noted in tokens.css) ---------- */
+.label {
+  font-size: var(--text-heading-size);
+  line-height: var(--text-heading-leading);
+  font-weight: var(--heading-weight);
+}
+
+/* ---------- Small screens (breakpoint also in tokens.css) ---------- */
 
 @media (max-width: 767px) {
+  /* Nav: name left, menu button right */
   .nav {
     grid-template-columns: 1fr auto;
     padding-top: 0;
@@ -326,7 +322,33 @@ body {
     background: var(--color-ink);
   }
 
-  .nav__toggle .close,
+  .nav__toggle .close {
+    display: none;
+  }
+
+  /* Menu: full screen, links centered */
+  .menu {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-paper);
+  }
+
+  .menu a {
+    padding: calc((var(--hit-area) - var(--text-button-leading)) / 2) var(--space-margin);
+  }
+
+  .menu-open {
+    overflow: hidden;
+  }
+
+  .menu-open .menu {
+    display: flex;
+  }
+
   .menu-open .bars {
     display: none;
   }
@@ -335,28 +357,7 @@ body {
     display: inline;
   }
 
-  .menu {
-    position: fixed;
-    inset: 0;
-    z-index: 5;
-    background: var(--color-paper);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .menu-open .menu {
-    display: flex;
-  }
-
-  .menu-open {
-    overflow: hidden;
-  }
-
-  .menu a {
-    padding: calc((var(--hit-area) - var(--text-button-leading)) / 2) var(--space-margin);
-  }
-
+  /* Content: one column, no preview */
   .preview {
     display: none;
   }

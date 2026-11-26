@@ -1,45 +1,48 @@
-// Redesign 2026. No animations: things simply appear and disappear.
+// Site behaviour. No animations: things simply appear and disappear.
+// Each feature runs only on pages that have its elements.
 
-// ---------- Mobile menu ----------
-const toggle = document.querySelector(".nav__toggle");
-if (toggle) {
-  toggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = document.body.classList.toggle("menu-open");
+initMenu();
+initHome();
+initIndexPreview();
+
+// Small screens: the menu button opens a full-screen menu and turns into "Close".
+function initMenu() {
+  const toggle = document.querySelector(".nav__toggle");
+  if (!toggle) return;
+
+  const setOpen = (open) => {
+    document.body.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+
+  toggle.addEventListener("click", () => setOpen(!document.body.classList.contains("menu-open")));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
   });
 }
 
-// ---------- Home: left half = previous, right half = next ----------
-const stage = document.querySelector(".stage");
-if (stage) {
+// Home: click the left half for the previous image, the right half for the next.
+// With a mouse, the counter follows the pointer (see .cursor in site.css).
+function initHome() {
+  const stage = document.querySelector(".stage");
+  if (!stage) return;
+
   const images = [...stage.querySelectorAll("img")];
   const counter = document.querySelector(".counter");
+  const cursor = createCursor();
+  const isOverNav = (target) => target.closest(".nav, .menu");
   let current = 0;
 
-  // Counter that follows the mouse (hidden over the nav). CSS shows it only for mouse users.
-  const cursor = document.createElement("div");
-  cursor.className = "cursor";
-  cursor.setAttribute("aria-hidden", "true");
-  document.body.append(cursor);
-
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-    cursor.classList.toggle("is-visible", !e.target.closest(".nav, .menu"));
-  });
-  document.documentElement.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
-
-  const show = (i) => {
+  const show = (index) => {
     images[current].hidden = true;
-    current = (i + images.length) % images.length;
+    current = (index + images.length) % images.length;
     images[current].hidden = false;
     counter.textContent = cursor.textContent = `${current + 1}/${images.length}`;
   };
 
   document.addEventListener("click", (e) => {
-    if (e.target.closest(".nav, .menu")) return;
+    if (isOverNav(e.target)) return;
     show(e.clientX < window.innerWidth / 2 ? current - 1 : current + 1);
   });
 
@@ -48,24 +51,41 @@ if (stage) {
     if (e.key === "ArrowRight") show(current + 1);
   });
 
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+    cursor.classList.toggle("is-visible", !isOverNav(e.target));
+  });
+
+  document.documentElement.addEventListener("mouseleave", () => {
+    cursor.classList.remove("is-visible");
+  });
+
   show(0);
 }
 
-// ---------- Index: hover a line to show its preview ----------
-const preview = document.querySelector(".preview img");
-if (preview) {
-  const rows = document.querySelectorAll(".projects li");
-  rows.forEach((row) => {
+function createCursor() {
+  const cursor = document.createElement("div");
+  cursor.className = "cursor";
+  cursor.setAttribute("aria-hidden", "true");
+  document.body.append(cursor);
+  return cursor;
+}
+
+// Index: hovering a project shows its preview image. The italic is pure CSS.
+function initIndexPreview() {
+  const preview = document.querySelector(".preview img");
+  if (!preview) return;
+
+  for (const row of document.querySelectorAll(".projects li")) {
     new Image().src = row.dataset.preview; // preload, so the preview appears instantly
+
     row.addEventListener("mouseenter", () => {
       preview.src = row.dataset.preview;
-      preview.alt = row.textContent;
       preview.hidden = false;
-      row.classList.add("is-active");
     });
     row.addEventListener("mouseleave", () => {
       preview.hidden = true;
-      row.classList.remove("is-active");
     });
-  });
+  }
 }

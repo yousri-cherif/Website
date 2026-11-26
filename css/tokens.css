@@ -1,87 +1,94 @@
 /* =========================================================
-   DESIGN TOKENS: the only place to change how the site looks.
-   Every value in site.css comes from here.
-   Change a value here and it updates on every page.
+   DESIGN TOKENS
+   The only place to change how the site looks. site.css uses
+   these names and holds no raw values. Change a value here
+   and it updates on every page.
    ========================================================= */
 
-/* Font file. To change the font: edit this URL AND --font-family below. */
+/* Font file. To change the font, edit this URL and --font-family. */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap");
 
 :root {
-  /* ---------- Color ---------- */
-  --color-ink: #000;      /* all text, icons, lines */
-  --color-paper: #fff;    /* background */
+  /* ---------- Color ----------
+     Pure black on pure white, as on anadominguez.es. */
+  --color-ink: #000;   /* text, icons */
+  --color-paper: #fff; /* background */
+
+  /* Selected text: white on black. The 99% keeps browsers from
+     fading a fully opaque selection color. */
+  --color-selection-text: var(--color-paper);
+  --color-selection-background: color-mix(in srgb, var(--color-ink) 99%, transparent);
 
   /* ---------- Font ---------- */
   --font-family: "Ubuntu Sans", system-ui, sans-serif;
   --font-weight-regular: 400;
-  --font-weight-strong: 500;      /* name, section labels */
-  --font-style-highlight: italic; /* hovered project in Index */
+  --font-weight-strong: 500;
 
-  /* Current page in the nav (Index, Info). Mix as you like:
-     weight: var(--font-weight-regular) or var(--font-weight-strong)
-     style:  normal or italic */
-  --nav-current-weight: var(--font-weight-strong);
-  --nav-current-style: italic;
-
-  /* ---------- Base sizes (change these to scale all text) ---------- */
+  /* ---------- Base sizes ----------
+     Change these to scale all text that uses them. */
   --size-s: 12px;
   --leading-s: 16px;
+  --size-xs: 10px;
+  --leading-xs: 12px;
 
-  /* ---------- Text styles: each role points to a base size ---------- */
-  /* Today they're all 12/16. To make one role bigger, point it to a new size. */
-  --text-body-size: var(--size-s);
+  /* ---------- Text roles ----------
+     Each role points to a base size. To make one role bigger,
+     point it to another size. */
+  --text-body-size: var(--size-s);         /* paragraphs, Index list */
   --text-body-leading: var(--leading-s);
-
-  --text-heading-size: var(--size-s);    /* section labels: About, Contact */
+  --text-heading-size: var(--size-s);      /* About, Contact */
   --text-heading-leading: var(--leading-s);
-
-  --text-nav-size: var(--size-s);        /* top navigation */
+  --text-nav-size: var(--size-s);          /* top navigation */
   --text-nav-leading: var(--leading-s);
-
-  --text-button-size: var(--size-s);     /* Close, menu links */
+  --text-button-size: var(--size-s);       /* Close, mobile menu */
   --text-button-leading: var(--leading-s);
-
-  --text-caption-size: var(--size-s);    /* counter 1/4, © 2026 */
+  --text-caption-size: var(--size-s);      /* 1/4 on touch screens, © 2026 */
   --text-caption-leading: var(--leading-s);
+  --text-cursor-size: var(--size-xs);      /* 1/4 that follows the mouse */
+  --text-cursor-leading: var(--leading-xs);
 
-  --text-cursor-size: 10px;          /* Home counter that follows the mouse */
-  --text-cursor-leading: 12px;
+  /* ---------- States ----------
+     weight: var(--font-weight-regular) or var(--font-weight-strong)
+     style:  normal or italic */
+  --name-weight: var(--font-weight-strong);         /* Yousri Cherif */
+  --heading-weight: var(--font-weight-strong);      /* About, Contact */
+  --nav-current-weight: var(--font-weight-strong);  /* current page */
+  --nav-current-style: italic;
+  --project-hover-style: italic;                    /* hovered project */
 
   /* ---------- Layout ---------- */
   --grid-columns: 12;
-  --space-margin: 20px;       /* outer page margin, all sides */
-  --space-gutter: 20px;       /* gap between grid columns */
-
-  --space-page-top: 148px;    /* content start on Index and Info */
+  --space-margin: 20px;     /* outer page margin */
+  --space-gutter: 20px;     /* gap between grid columns */
+  --space-page-top: 148px;  /* where Index and Info content starts */
   --space-page-bottom: 80px;
-  --space-section: 48px;      /* between About and Contact */
-  --space-paragraph: 16px;    /* between paragraphs */
-  --space-stage: 87px;        /* Home image distance from top and bottom */
+  --space-section: 48px;    /* between About and Contact */
+  --space-paragraph: 16px;  /* between paragraphs */
+  --space-stage: 87px;      /* Home image distance from top and bottom */
+
+  --content-column-start: 7; /* Index list and Info text */
+  --info-column-span: 4;
+  --preview-column-start: 5; /* Index hover preview */
+  --preview-column-span: 2;
 
   /* ---------- Components ---------- */
-  --nav-links-gap: 32px;      /* space between Index and Info (plus the invisible parentheses) */
-  --bracket-gap: 1px;         /* space between a word and its hover ( ) */
+  --nav-links-gap: 32px; /* between Index and Info, plus the hidden ( ) */
+  --bracket-gap: 1px;    /* between a word and its ( ) */
 
-  /* Home counter that follows the mouse. White + difference = black on white,
-     inverted on photos, so it's always readable. */
-  --cursor-color: #fff;
+  /* The counter cursor is paper-colored and inverts what's under it:
+     black on white, light on dark photos. */
+  --cursor-color: var(--color-paper);
   --cursor-blend: difference;
 
   --menu-icon-width: 18px;
   --menu-icon-gap: 5px;
   --menu-icon-stroke: 1px;
-  --hit-area: 44px;           /* minimum tap target on mobile */
-
-  --preview-column-start: 5;  /* Index hover preview: columns 5–6 */
-  --preview-column-span: 2;
-  --content-column-start: 7;  /* Index list and Info text start at column 7 */
-  --info-column-span: 4;
+  --hit-area: 44px; /* minimum tap target */
 }
 
-/* ---------- Mobile overrides (below 768px) ---------- */
-/* CSS can't use a variable inside a media query, so the 767px breakpoint
-   is also written in site.css. Change it in both places. */
+/* ---------- Small screens ----------
+   CSS can't use a variable in a media query, so the 767px breakpoint
+   is also written in site.css. Change both together. */
 @media (max-width: 767px) {
   :root {
     --grid-columns: 1;

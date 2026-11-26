@@ -36,7 +36,8 @@ The Figma file (Website 2.0) is the visual reference.
 - The name is in medium weight (500). The current page in the nav is medium italic (tokens `--nav-current-weight` and `--nav-current-style`). The hovered project in Index is italic.
 
 ## Type and grid
-- Ubuntu Sans Regular 12/16 everywhere, with Italic for highlights. All text is in one black, never grey.
+- Ubuntu Sans 12/16 everywhere (Regular, Medium, Italic, Medium Italic). Pure black `#000` on pure white `#fff`, never grey.
+- Selected text: white on black, as on anadominguez.es.
 - Desktop grid: 12 columns, 20px margin, 20px gutter.
 
 ## Design system
@@ -51,6 +52,13 @@ The Figma file (Website 2.0) is the visual reference.
 - One script for all pages: `js/site.js` (mobile menu, Home click, Index hover).
 - Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav it returns to normal. On touch screens the counter stays at the bottom center.
 - Preview on your Mac: run `python3 -m http.server 4321`, then open http://localhost:4321.
+
+## Code rules
+- Clean over quick: no patches on patches. When something changes, restructure so the code reads as if it was written that way from the start.
+- No raw values in `site.css`: add or reuse a token.
+- CSS order: reset, base, nav, bottom bar, Home, Index and Info, small screens.
+- JS: one function per feature (`initMenu`, `initHome`, `initIndexPreview`). Use CSS instead of JS wherever CSS can do it (hover states, for example).
+- Small commits with clear messages.
 
 ## Workflow
 - `main` is the live site (GitHub Pages, yousricherif.com).
