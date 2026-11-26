@@ -1,0 +1,73 @@
+/* =========================================================
+   DESIGN TOKENS: the only place to change how the site looks.
+   Every value in site.css comes from here.
+   Change a value here and it updates on every page.
+   ========================================================= */
+
+/* Font file. To change the font: edit this URL AND --font-family below. */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,400;1,400&display=swap");
+
+:root {
+  /* ---------- Color ---------- */
+  --color-ink: #000;      /* all text, icons, lines */
+  --color-paper: #fff;    /* background */
+
+  /* ---------- Font ---------- */
+  --font-family: "Ubuntu Sans", system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-style-highlight: italic; /* active nav item, hovered project */
+
+  /* ---------- Base sizes (change these to scale all text) ---------- */
+  --size-s: 12px;
+  --leading-s: 16px;
+
+  /* ---------- Text styles: each role points to a base size ---------- */
+  /* Today they're all 12/16. To make one role bigger, point it to a new size. */
+  --text-body-size: var(--size-s);
+  --text-body-leading: var(--leading-s);
+
+  --text-heading-size: var(--size-s);    /* section labels: About, Contact */
+  --text-heading-leading: var(--leading-s);
+
+  --text-nav-size: var(--size-s);        /* top navigation */
+  --text-nav-leading: var(--leading-s);
+
+  --text-button-size: var(--size-s);     /* Close, menu links */
+  --text-button-leading: var(--leading-s);
+
+  --text-caption-size: var(--size-s);    /* counter 1/4, © 2026 */
+  --text-caption-leading: var(--leading-s);
+
+  /* ---------- Layout ---------- */
+  --grid-columns: 12;
+  --space-margin: 20px;       /* outer page margin, all sides */
+  --space-gutter: 20px;       /* gap between grid columns */
+
+  --space-page-top: 148px;    /* content start on Index and Info */
+  --space-page-bottom: 80px;
+  --space-section: 48px;      /* between About and Contact */
+  --space-paragraph: 16px;    /* between paragraphs */
+  --space-stage: 87px;        /* Home image distance from top and bottom */
+
+  /* ---------- Components ---------- */
+  --menu-icon-width: 18px;
+  --menu-icon-gap: 5px;
+  --menu-icon-stroke: 1px;
+  --hit-area: 44px;           /* minimum tap target on mobile */
+
+  --preview-column-start: 5;  /* Index hover preview: columns 5–6 */
+  --preview-column-span: 2;
+  --content-column-start: 7;  /* Index list and Info text start at column 7 */
+  --info-column-span: 4;
+}
+
+/* ---------- Mobile overrides (below 768px) ---------- */
+/* CSS can't use a variable inside a media query, so the 767px breakpoint
+   is also written in site.css. Change it in both places. */
+@media (max-width: 767px) {
+  :root {
+    --grid-columns: 1;
+    --space-page-top: 112px;
+    --space-stage: 72px;
+  }
+}

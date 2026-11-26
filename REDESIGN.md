@@ -38,6 +38,19 @@ The Figma file (Website 2.0) is the visual reference.
 - Ubuntu Sans Regular 12/16 everywhere, with Italic for highlights. All text is in one black, never grey.
 - Desktop grid: 12 columns, 20px margin, 20px gutter.
 
+## Design system
+- Every value (font, text sizes, colors, margins, spacing, columns) lives in `css/tokens.css`. Change it there and it updates on every page.
+- `css/site.css` only references tokens and holds no raw values.
+- Text roles: body, heading, nav, button and caption. Today they're all 12/16; to change a role, point it to another size.
+- Mobile breakpoint: 767px. It's written in both `tokens.css` and `site.css`, because CSS can't use a variable inside a media query.
+- No animations for now. Things appear and disappear instantly.
+
+## Code
+- Pages: `index.html` (Home), `index/index.html` (Index), `info/index.html` (Info).
+- One script for all pages: `js/site.js` (mobile menu, Home click, Index hover).
+- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too.
+- Preview on your Mac: run `python3 -m http.server 4321`, then open http://localhost:4321.
+
 ## Workflow
 - `main` is the live site (GitHub Pages, yousricherif.com).
 - `v1` tags the old site.

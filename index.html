@@ -2,145 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Yousri Cherif</title>
-
-    <meta
-      name="description"
-      content="Yousri Cherif is a Tunisian portraiture and fashion photographer based between Munich
-            and Tunis."
-    />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Yousri Cherif, portrait and fashion photographer based between Munich and Tunis." />
     <meta name="author" content="Yousri Cherif" />
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
 
-    <!-- https://favicon.io/ -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="favicon/site.webmanifest" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="/css/site.css" />
+    <script defer src="/js/site.js"></script>
   </head>
 
-  <body id="index">
-    <header class="header">
-      <nav class="navbar_container">
-        <a class="navbar_title" href="#" onclick="return false;"
-          >Yousri Cherif</a
-        >
-        <ul class="navbar_menu">
-          <li class="navbar_item">
-            <a class="navbar_links" href="#" onclick="return false;">Work</a>
-          </li>
-          <li class="navbar_item">
-            <a href="/about.html" class="navbar_links">About</a>
-          </li>
-        </ul>
-      </nav>
+  <body class="home">
+    <header class="nav grid">
+      <a class="nav__name" href="/">Yousri Cherif</a>
+      <nav class="nav__links"><a href="/index/">Index</a>, <a href="/info/">Info</a></nav>
+      <span class="nav__role">Photographer</span>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span class="bars" aria-hidden="true"><span></span><span></span></span>
+        <span class="close">Close</span>
+      </button>
     </header>
+    <nav class="menu" id="menu">
+      <a href="/index/">Index</a>
+      <a href="/info/">Info</a>
+    </nav>
 
-    <main>
-      <section class="image_container unselectable">
-        <img
-          class="image"
-          src="images/Annie_01_border.jpg"
-          alt="Annie"
-          loading="lazy"
-        /><img
-          class="image"
-          src="images/Charlotte_01.jpg"
-          alt="Charlotte"
-          loading="lazy"
-        />
-        <img class="image" src="images/Wael_01.jpg" alt="Wael" loading="lazy" />
-        <img
-          class="image"
-          src="images/Wael_Alaa_01.jpg"
-          alt="Wael"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Achref_01.jpg"
-          alt="Achref"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Ameni_01.jpg"
-          alt="Ameni"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Ameni_02.jpg"
-          alt="Ameni"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Nihed_01.jpg"
-          alt="Nihed"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Sasha_01.jpg"
-          alt="Sasha"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Sasha_02.jpg"
-          alt="Sasha"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Charlotte_02.jpg"
-          alt="Charlotte"
-          loading="lazy"
-        />
-        <img
-          class="image"
-          src="images/Abdou_01.jpg"
-          alt="Abdou"
-          loading="lazy"
-        />
-      </section>
-      <div class="popup_image unselectable">
-        <img src="images/Walid_01.jpg" alt="Walid" />
-        <span>&times;</span>
-      </div>
+    <main class="stage" aria-label="Selected work. Click the left half for the previous image, the right half for the next.">
+      <img src="/images/Wael_01.jpg" alt="Wael" />
+      <img src="/images/Annie_01.jpg" alt="Annie" hidden />
+      <img src="/images/Nihed_01.jpg" alt="Nihed" hidden />
+      <img src="/images/Sasha_01.jpg" alt="Sasha" hidden />
     </main>
 
-    <footer>
-      <p id="copyright_text"></p>
-    </footer>
+    <p class="bottom bottom--center counter" aria-live="polite">1/4</p>
   </body>
 </html>
