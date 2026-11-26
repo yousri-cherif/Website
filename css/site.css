@@ -78,9 +78,13 @@ body {
   font-style: var(--font-style-highlight);
 }
 
-.nav__name,
-[aria-current="page"] {
+.nav__name {
   font-weight: var(--font-weight-strong);
+}
+
+[aria-current="page"] {
+  font-weight: var(--nav-current-weight);
+  font-style: var(--nav-current-style);
 }
 
 /* ---------- Grid ---------- */

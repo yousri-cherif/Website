@@ -15,8 +15,14 @@
   /* ---------- Font ---------- */
   --font-family: "Ubuntu Sans", system-ui, sans-serif;
   --font-weight-regular: 400;
-  --font-weight-strong: 500;      /* name, current page in nav, section labels */
+  --font-weight-strong: 500;      /* name, section labels */
   --font-style-highlight: italic; /* hovered project in Index */
+
+  /* Current page in the nav (Index, Info). Mix as you like:
+     weight: var(--font-weight-regular) or var(--font-weight-strong)
+     style:  normal or italic */
+  --nav-current-weight: var(--font-weight-regular);
+  --nav-current-style: italic;
 
   /* ---------- Base sizes (change these to scale all text) ---------- */
   --size-s: 12px;

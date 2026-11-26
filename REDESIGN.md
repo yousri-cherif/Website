@@ -32,7 +32,7 @@ The Figma file (Website 2.0) is the visual reference.
 ## Nav
 - Desktop: "Yousri Cherif" on the left, `Index, Info` at the center, "Photographer" on the right.
 - Mobile: the name on the left and `Index, Info` on the right.
-- The name and the current page are in medium weight (500). The hovered project in Index is italic.
+- The name is in medium weight (500). The current page in the nav is italic (tokens `--nav-current-weight` and `--nav-current-style`). The hovered project in Index is italic.
 
 ## Type and grid
 - Ubuntu Sans Regular 12/16 everywhere, with Italic for highlights. All text is in one black, never grey.
