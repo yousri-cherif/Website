@@ -31,7 +31,7 @@ The Figma file (Website 2.0) is the visual reference.
 
 ## Nav
 - Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma, 40px apart) at the center, "Photographer" on the right.
-- On hover, links get parentheses: (Index). They are drawn outside the word, so nothing moves.
+- Links get parentheses on hover, and the current page keeps them: (Index). They are drawn outside the word, so nothing moves.
 - Mobile: the name on the left and `Index, Info` on the right.
 - The name is in medium weight (500). The current page in the nav is medium italic (tokens `--nav-current-weight` and `--nav-current-style`). The hovered project in Index is italic.
 
