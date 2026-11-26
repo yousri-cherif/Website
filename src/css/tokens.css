@@ -80,7 +80,7 @@
   --nav-color: var(--color-paper);
   --nav-blend: difference;
 
-  --project-thumb-height: 96px; /* next-project previews at the end of a project */
+  --project-thumb-height: 160px; /* next-project previews at the end of a project */
 
   --nav-links-gap: 32px; /* between Index and Info, plus the hidden ( ) */
   --bracket-gap: 1px;    /* between a word and its ( ) */
@@ -99,6 +99,7 @@
 @media (max-width: 767px) {
   :root {
     --grid-columns: 1;
+    --project-thumb-height: 96px; /* four previews still fit in one row */
     --space-page-top: 112px;
   }
 }
