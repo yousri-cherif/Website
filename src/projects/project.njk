@@ -10,10 +10,13 @@ eleventyComputed:
   description: "{{ project.name }}, {{ project.type }}. Photography by Yousri Cherif."
 ---
 {#- One page per project in _data/projects.json.
-    The images scroll one after another; at the end, the next
-    projects (wrapping around the list) sit alone in the center. -#}
+    The images scroll one after another; at the end, a few other
+    projects sit alone in the center. Every other project is listed;
+    the script shows a random selection of `suggestions` of them on
+    each visit. Without the script, the next ones in the list show. -#}
 {%- set count = projects | length %}
 {%- set index = pagination.pageNumber %}
+{%- set suggestions = 4 %}
     <main class="project">
       <h1 class="visually-hidden">{{ project.name }}, {{ project.type }}</h1>
 
@@ -23,10 +26,10 @@ eleventyComputed:
         {%- endfor %}
       </div>
 
-      <nav class="project__more" aria-label="More projects">
-        {%- for step in range(1, 5) %}
+      <nav class="project__more" aria-label="More projects" data-suggestions="{{ suggestions }}">
+        {%- for step in range(1, count) %}
         {%- set other = projects[(index + step) % count] %}
-        <a href="/projects/{{ other.slug }}/"><img src="/images/{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
+        <a href="/projects/{{ other.slug }}/"{% if step > suggestions %} hidden{% endif %}><img src="/images/{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
         {%- endfor %}
       </nav>
     </main>

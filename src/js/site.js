@@ -4,6 +4,7 @@
 initMenu();
 initHome();
 initIndexPreview();
+initProjectSuggestions();
 
 // Small screens: Menu opens a full-screen menu and turns into Close.
 // The visible word is the button's name, so only aria-expanded changes.
@@ -88,4 +89,28 @@ function initIndexPreview() {
       preview.hidden = true;
     });
   }
+}
+
+// Project page: the page lists every other project; show a random few
+// (data-suggestions), in random order. Hidden ones never load their image.
+function initProjectSuggestions() {
+  const more = document.querySelector(".project__more");
+  if (!more) return;
+
+  const links = shuffle([...more.querySelectorAll("a")]);
+  const shown = Number(more.dataset.suggestions);
+
+  links.forEach((link, i) => {
+    link.hidden = i >= shown;
+  });
+  more.append(...links.slice(0, shown));
+}
+
+// Fisher–Yates: every order is equally likely.
+function shuffle(items) {
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  return items;
 }
