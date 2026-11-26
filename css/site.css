@@ -329,22 +329,14 @@ body {
     padding-top: var(--space-margin);
   }
 
-  .bars {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--menu-icon-gap);
-    width: var(--menu-icon-width);
-    height: var(--text-button-leading);
-  }
-
-  .bars span {
-    height: var(--menu-icon-stroke);
-    background: var(--color-ink);
-  }
-
-  .nav__toggle .close {
+  /* The button reads Menu, and Close while the menu is open */
+  .nav__toggle-close,
+  .menu-open .nav__toggle-open {
     display: none;
+  }
+
+  .menu-open .nav__toggle-close {
+    display: inline;
   }
 
   /* Menu: full screen, links centered */
@@ -370,13 +362,6 @@ body {
     display: flex;
   }
 
-  .menu-open .bars {
-    display: none;
-  }
-
-  .menu-open .nav__toggle .close {
-    display: inline;
-  }
 
   /* Content: one column, no preview */
   .preview {

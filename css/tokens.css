@@ -80,9 +80,6 @@
   --cursor-color: var(--color-paper);
   --cursor-blend: difference;
 
-  --menu-icon-width: 18px;
-  --menu-icon-gap: 5px;
-  --menu-icon-stroke: 1px;
   --hit-area: 44px; /* minimum tap target */
 }
 

@@ -5,7 +5,8 @@ initMenu();
 initHome();
 initIndexPreview();
 
-// Small screens: the menu button opens a full-screen menu and turns into "Close".
+// Small screens: Menu opens a full-screen menu and turns into Close.
+// The visible word is the button's name, so only aria-expanded changes.
 function initMenu() {
   const toggle = document.querySelector(".nav__toggle");
   if (!toggle) return;
@@ -13,7 +14,6 @@ function initMenu() {
   const setOpen = (open) => {
     document.body.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   };
 
   toggle.addEventListener("click", () => setOpen(!document.body.classList.contains("menu-open")));
