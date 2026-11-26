@@ -138,6 +138,27 @@ body {
   margin-left: var(--bracket-gap);
 }
 
+/* Hanging variant, for words flush with the page edge (Close):
+   the ( ) sit outside the word and take no space, so the word
+   itself stays aligned with the margin. With no top or bottom set,
+   they keep their place on the text line. */
+.brackets--hang {
+  position: relative;
+}
+
+.brackets--hang::before,
+.brackets--hang::after {
+  position: absolute;
+}
+
+.brackets--hang::before {
+  right: 100%;
+}
+
+.brackets--hang::after {
+  left: 100%;
+}
+
 .brackets[aria-current="page"]::before,
 .brackets[aria-current="page"]::after {
   visibility: visible;
