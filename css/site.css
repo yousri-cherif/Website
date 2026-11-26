@@ -174,8 +174,8 @@ body {
     z-index: 20;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    font-size: var(--text-caption-size);
-    line-height: var(--text-caption-leading);
+    font-size: var(--text-cursor-size);
+    line-height: var(--text-cursor-leading);
     color: var(--cursor-color);
     mix-blend-mode: var(--cursor-blend);
     white-space: nowrap;

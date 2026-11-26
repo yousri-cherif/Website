@@ -45,6 +45,9 @@
   --text-caption-size: var(--size-s);    /* counter 1/4, © 2026 */
   --text-caption-leading: var(--leading-s);
 
+  --text-cursor-size: 10px;          /* Home counter that follows the mouse */
+  --text-cursor-leading: 12px;
+
   /* ---------- Layout ---------- */
   --grid-columns: 12;
   --space-margin: 20px;       /* outer page margin, all sides */
