@@ -23,7 +23,7 @@ The Figma file (Website 2.0) is the visual reference.
 
 **Info**
 - No photo.
-- About: bio, with `@cherifyousri` as the last line.
+- About: bio, with `@yousri.cherif` as the last line.
 - Contact: email, plus "Commissions and rates on request."
 - Selected clients stays hidden until there are more clients.
 - `© 2026` at the bottom left.
