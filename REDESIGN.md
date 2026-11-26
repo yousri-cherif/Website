@@ -32,7 +32,7 @@ The Figma file (Website 2.0) is the visual reference.
 ## Nav
 - Desktop: "Yousri Cherif" on the left, `Index, Info` at the center, "Photographer" on the right.
 - Mobile: the name on the left and `Index, Info` on the right.
-- The current page is shown in italic.
+- The name and the current page are in medium weight (500). The hovered project in Index is italic.
 
 ## Type and grid
 - Ubuntu Sans Regular 12/16 everywhere, with Italic for highlights. All text is in one black, never grey.
@@ -48,7 +48,7 @@ The Figma file (Website 2.0) is the visual reference.
 ## Code
 - Pages: `index.html` (Home), `index/index.html` (Index), `info/index.html` (Info).
 - One script for all pages: `js/site.js` (mobile menu, Home click, Index hover).
-- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too.
+- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too. The cursor stays normal; only links show a pointer.
 - Preview on your Mac: run `python3 -m http.server 4321`, then open http://localhost:4321.
 
 ## Workflow

@@ -5,7 +5,7 @@
    ========================================================= */
 
 /* Font file. To change the font: edit this URL AND --font-family below. */
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,400;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,400;0,500;1,400&display=swap");
 
 :root {
   /* ---------- Color ---------- */
@@ -15,7 +15,8 @@
   /* ---------- Font ---------- */
   --font-family: "Ubuntu Sans", system-ui, sans-serif;
   --font-weight-regular: 400;
-  --font-style-highlight: italic; /* active nav item, hovered project */
+  --font-weight-strong: 500;      /* name, current page in nav, section labels */
+  --font-style-highlight: italic; /* hovered project in Index */
 
   /* ---------- Base sizes (change these to scale all text) ---------- */
   --size-s: 12px;

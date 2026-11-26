@@ -55,7 +55,7 @@ body {
 .label {
   font-size: var(--text-heading-size);
   line-height: var(--text-heading-leading);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-strong);
 }
 
 .nav {
@@ -76,6 +76,11 @@ body {
 
 .is-active {
   font-style: var(--font-style-highlight);
+}
+
+.nav__name,
+[aria-current="page"] {
+  font-weight: var(--font-weight-strong);
 }
 
 /* ---------- Grid ---------- */
@@ -140,7 +145,6 @@ body {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
