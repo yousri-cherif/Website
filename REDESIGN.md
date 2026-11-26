@@ -1,0 +1,45 @@
+# Redesign 2026: site spec
+
+Photography portfolio. Minimal and curated. This file is the source of truth for the redesign.
+The Figma file (Website 2.0) is the visual reference.
+
+## Pages
+
+**Home**
+- One curated image at a time, 8 in total, no titles.
+- Clicking or tapping shows the next image.
+- The counter `1/8` at the bottom center is the only UI besides the nav.
+
+**Index**
+- A plain list: `Name, type`. Types are editorial, commercial or personal only.
+- No numbers, years or lines.
+- Desktop: hovering a line shows a small preview image (2 columns, top-aligned with the list) and sets the line in italic.
+- Mobile: no hover, so tapping a line opens the project.
+
+**Project** (opened from Index)
+- Images are the same size and centered. They scroll vertically, one per screen.
+- Desktop: the project name is fixed on the left and the counter `1/n` is fixed on the right, both at the vertical center. The counter updates on scroll.
+- Mobile: the images are full width, and the name and counter sit in a small fixed bar at the bottom.
+
+**Info**
+- No photo.
+- About: bio, with `@cherifyousri` as the last line.
+- Contact: email, plus "Commissions and rates on request."
+- Selected clients stays hidden until there are more clients.
+- `© 2026` at the bottom left.
+- There is no Close button anywhere on the site.
+
+## Nav
+- Desktop: "Yousri Cherif" on the left, `Index, Info` at the center, "Photographer" on the right.
+- Mobile: the name on the left and `Index, Info` on the right.
+- The current page is shown in italic.
+
+## Type and grid
+- Ubuntu Sans Regular 12/16 everywhere, with Italic for highlights. All text is in one black, never grey.
+- Desktop grid: 12 columns, 20px margin, 20px gutter.
+
+## Workflow
+- `main` is the live site (GitHub Pages, yousricherif.com).
+- `v1` tags the old site.
+- All redesign work happens on `redesign`, with small commits.
+- To launch, merge the pull request into `main`.
