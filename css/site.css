@@ -177,7 +177,9 @@ body {
     cursor: none;
   }
 
-  .home .nav {
+  /* Normal cursor over the nav and the open menu (small windows) */
+  .home .nav,
+  .home .menu {
     cursor: default;
   }
 
