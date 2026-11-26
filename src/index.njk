@@ -1,0 +1,11 @@
+---
+layout: base.njk
+bodyClass: home
+---
+    <main class="stage" aria-label="Selected work. Click the left half for the previous image, the right half for the next.">
+      {%- for item in home %}
+      <img src="/images/{{ item.image }}" alt="{{ item.alt }}"{% if not loop.first %} hidden{% endif %} />
+      {%- endfor %}
+    </main>
+
+    <p class="bottom bottom--center counter" aria-live="polite">1/{{ home | length }}</p>

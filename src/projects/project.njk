@@ -1,0 +1,32 @@
+---
+layout: base.njk
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "/projects/{{ project.slug }}/"
+eleventyComputed:
+  title: "{{ project.name }}"
+  description: "{{ project.name }}, {{ project.type }}. Photography by Yousri Cherif."
+---
+{#- One page per project in _data/projects.json.
+    The images scroll one after another; at the end, the next
+    projects (wrapping around the list) sit alone in the center. -#}
+{%- set count = projects | length %}
+{%- set index = pagination.pageNumber %}
+    <main class="project">
+      <h1 class="visually-hidden">{{ project.name }}, {{ project.type }}</h1>
+
+      <div class="project__images">
+        {%- for image in project.images %}
+        <img src="/images/{{ image }}" alt="{{ project.name }}, image {{ loop.index }} of {{ project.images | length }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async" />
+        {%- endfor %}
+      </div>
+
+      <nav class="project__more" aria-label="More projects">
+        {%- for step in range(1, 5) %}
+        {%- set other = projects[(index + step) % count] %}
+        <a href="/projects/{{ other.slug }}/"><img src="/images/{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
+        {%- endfor %}
+      </nav>
+    </main>

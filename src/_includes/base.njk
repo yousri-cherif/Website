@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Yousri Cherif</title>
-    <meta name="description" content="Yousri Cherif, portrait and fashion photographer based between Munich and Tunis." />
+    <title>{% if title %}{{ title }} · {% endif %}Yousri Cherif</title>
+    <meta name="description" content="{{ description or 'Yousri Cherif, portrait and fashion photographer based between Munich and Tunis.' }}" />
     <meta name="author" content="Yousri Cherif" />
     <meta name="theme-color" content="#ffffff" />
 
@@ -16,10 +16,15 @@
     <script defer src="/js/site.js"></script>
   </head>
 
-  <body class="home">
+  {#- A nav link, marked as the current page when its URL matches. -#}
+  {%- macro navLink(url, label, class) -%}
+    <a class="{{ class }}" href="{{ url }}"{% if page.url == url %} aria-current="page"{% endif %}>{{ label }}</a>
+  {%- endmacro %}
+
+  <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
     <header class="nav grid">
       <a class="nav__name" href="/">Yousri Cherif</a>
-      <nav class="nav__links"><a class="brackets" href="/index/">Index</a><a class="brackets" href="/info/">Info</a></nav>
+      <nav class="nav__links">{{ navLink("/index/", "Index", "brackets") }}{{ navLink("/info/", "Info", "brackets") }}</nav>
       <span class="nav__role">Photographer</span>
       <button class="nav__toggle" aria-expanded="false" aria-controls="menu">
         <span class="nav__toggle-open brackets brackets--hang">Menu</span>
@@ -27,18 +32,10 @@
       </button>
     </header>
     <nav class="menu" id="menu">
-      <a class="brackets" href="/index/">Index</a>
-      <a class="brackets" href="/info/">Info</a>
+      {{ navLink("/index/", "Index", "brackets") }}
+      {{ navLink("/info/", "Info", "brackets") }}
     </nav>
 
-    <main class="stage" aria-label="Selected work. Click the left half for the previous image, the right half for the next.">
-      <img src="/images/Film_01.jpg" alt="Portrait on film" />
-      <img src="/images/Wael_01.jpg" alt="Wael" hidden />
-      <img src="/images/Annie_01.jpg" alt="Annie" hidden />
-      <img src="/images/Nihed_01.jpg" alt="Nihed" hidden />
-      <img src="/images/Sasha_01.jpg" alt="Sasha" hidden />
-    </main>
-
-    <p class="bottom bottom--center counter" aria-live="polite">1/5</p>
+{{ content | safe }}
   </body>
 </html>

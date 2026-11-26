@@ -63,6 +63,16 @@ body {
   background: var(--color-selection-background);
 }
 
+/* Hidden on screen, still read by screen readers and search engines */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
@@ -82,6 +92,8 @@ body {
   padding-top: var(--space-margin);
   font-size: var(--text-nav-size);
   line-height: var(--text-nav-leading);
+  color: var(--nav-color);
+  mix-blend-mode: var(--nav-blend);
 }
 
 .nav__name {
@@ -273,7 +285,6 @@ body {
 
 .projects li {
   width: fit-content;
-  cursor: default;
 }
 
 @media (hover: hover) {
@@ -298,6 +309,45 @@ body {
   font-size: var(--text-heading-size);
   line-height: var(--text-heading-leading);
   font-weight: var(--heading-weight);
+}
+
+/* ---------- Project ----------
+   Images scroll one after another, each fitting the screen. After a
+   large empty space, the next projects sit alone in the center of
+   the last screen. */
+
+.project__images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-project-gap);
+  padding: var(--space-stage) var(--space-margin) 0;
+}
+
+/* Each image gets a frame one screen tall (like the Home stage) and is
+   fitted inside it, so portrait and landscape both fit, and the page
+   never jumps while images load. */
+.project__images img {
+  width: 100%;
+  height: calc(100vh - 2 * var(--space-stage));
+  height: calc(100svh - 2 * var(--space-stage));
+  object-fit: contain;
+}
+
+.project__more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-gutter);
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-top: var(--space-project-end);
+  padding: 0 var(--space-margin);
+}
+
+.project__more img {
+  height: var(--project-thumb-height);
+  width: auto;
 }
 
 /* ---------- Small screens (breakpoint also in tokens.css) ---------- */

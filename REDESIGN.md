@@ -16,10 +16,11 @@ The Figma file (Website 2.0) is the visual reference.
 - Desktop: hovering a line shows a small preview image (2 columns, top-aligned with the list) and sets the line in italic.
 - Mobile: no hover, so tapping a line opens the project.
 
-**Project** (opened from Index)
-- Images are the same size and centered. They scroll vertically, one per screen.
-- Desktop: the project name is fixed on the left and the counter `1/n` is fixed on the right, both at the vertical center. The counter updates on scroll.
-- Mobile: the images are full width, and the name and counter sit in a small fixed bar at the bottom.
+**Project** (opened from Index, at `/projects/<slug>/`)
+- Images scroll vertically, centered, each fitted in a frame one screen tall (portrait and landscape alike), with a third of a screen between them.
+- After the last image, half a screen of white, then the next 4 projects as small previews in a row. Clicking one opens that project.
+- Scrolled to the very end, only those previews are visible, centered on an otherwise white screen.
+- The nav stays fixed on top.
 
 **Info**
 - No photo.
@@ -33,6 +34,7 @@ The Figma file (Website 2.0) is the visual reference.
 - Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma, 32px apart plus the invisible parentheses) at the center, "Photographer" on the right.
 - Index and Info get parentheses on hover, and the current page keeps them, also in the mobile menu: (Index). Close gets them on hover too, hanging outside the word so it stays flush with the margin. Never on the name. The parentheses are part of the text line, always there but invisible until shown, so they align with the text and nothing moves.
 - Small screens: the name on the left and the word "Menu" on the right. It opens a full-screen menu with Index and Info centered and turns into "Close".
+- Over photos the nav stays readable: it's white with a "difference" blend, so it shows black on white and inverts over images (as on anadominguez.es).
 - The name is in medium weight (500). The current page in the nav is medium italic (tokens `--nav-current-weight` and `--nav-current-style`). The hovered project in Index is italic.
 
 ## Type and grid
@@ -41,22 +43,28 @@ The Figma file (Website 2.0) is the visual reference.
 - Desktop grid: 12 columns, 20px margin, 20px gutter.
 
 ## Design system
-- Every value (font, text sizes, colors, margins, spacing, columns) lives in `css/tokens.css`. Change it there and it updates on every page.
-- `css/site.css` only references tokens and holds no raw values.
+- Every value (font, text sizes, colors, margins, spacing, columns) lives in `src/css/tokens.css`. Change it there and it updates on every page.
+- `src/css/site.css` only references tokens and holds no raw values.
 - Text roles: body, heading, nav, button and caption. Today they're all 12/16; to change a role, point it to another size.
 - Mobile breakpoint: 767px. It's written in both `tokens.css` and `site.css`, because CSS can't use a variable inside a media query.
 - No animations for now. Things appear and disappear instantly.
 
 ## Code
-- Pages: `index.html` (Home), `index/index.html` (Index), `info/index.html` (Info).
-- One script for all pages: `js/site.js` (mobile menu, Home click, Index hover).
+- The site is built with Eleventy: templates in `src/` become plain HTML in `_site/` (not committed).
+- Content lives in data files, not in pages:
+  - `src/_data/projects.json`: every project (slug, name, type, images). Adding a project there creates its page, its Index line and its place in the "next projects" row.
+  - `src/_data/home.json`: the Home images, in order.
+- Shared layout (head, nav, mobile menu): `src/_includes/base.njk`.
+- Pages: `src/index.njk` (Home), `src/index/index.njk` (Index), `src/info/index.njk` (Info), `src/projects/project.njk` (one page per project), `src/404.njk`.
+- Images: originals in `src/images/`. The build converts every page image to WebP (max 2000px wide) and adds its width and height, so pages don't jump while loading.
+- One script for all pages: `src/js/site.js` (mobile menu, Home click, Index hover).
 - Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav it returns to normal. On touch screens the counter stays at the bottom center.
-- Preview on your Mac: run `python3 -m http.server 4321`, then open http://localhost:4321.
+- Preview on your Mac: run `npm start` in the project folder, then open http://localhost:4321. It rebuilds and reloads on every change.
 
 ## Code rules
 - Clean over quick: no patches on patches. When something changes, restructure so the code reads as if it was written that way from the start.
 - No raw values in `site.css`: add or reuse a token.
-- CSS order: reset, base, nav, bottom bar, Home, Index and Info, small screens.
+- CSS order: reset, base, nav, bottom bar, Home, Index and Info, project, small screens.
 - JS: one function per feature (`initMenu`, `initHome`, `initIndexPreview`). Use CSS instead of JS wherever CSS can do it (hover states, for example).
 - Small commits with clear messages.
 
@@ -64,4 +72,6 @@ The Figma file (Website 2.0) is the visual reference.
 - `main` is the live site (GitHub Pages, yousricherif.com).
 - `v1` tags the old site.
 - All redesign work happens on `redesign`, with small commits.
-- To launch, merge the pull request into `main`.
+- To launch:
+  1. In GitHub: Settings → Pages → Source: "GitHub Actions" (the site is now built, not served as raw files).
+  2. Merge the pull request into `main`. `.github/workflows/deploy.yml` builds and publishes it.

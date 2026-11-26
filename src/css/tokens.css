@@ -65,6 +65,8 @@
   --space-section: 48px;    /* between About and Contact */
   --space-paragraph: 16px;  /* between paragraphs */
   --space-stage: 72px;      /* Home image distance from top and bottom (36px clear of nav and counter) */
+  --space-project-gap: 33vh;  /* between images on a project page */
+  --space-project-end: 50vh;  /* empty space before the next projects */
 
   --content-column-start: 7; /* Index list and Info text */
   --info-column-span: 4;
@@ -72,6 +74,14 @@
   --preview-column-span: 2;
 
   /* ---------- Components ---------- */
+  /* The nav floats over photos on project pages. Paper-colored text
+     with a difference blend reads black on white and inverts over
+     photos, as on anadominguez.es. */
+  --nav-color: var(--color-paper);
+  --nav-blend: difference;
+
+  --project-thumb-height: 96px; /* next-project previews at the end of a project */
+
   --nav-links-gap: 32px; /* between Index and Info, plus the hidden ( ) */
   --bracket-gap: 1px;    /* between a word and its ( ) */
 
