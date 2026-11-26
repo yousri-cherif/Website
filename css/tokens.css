@@ -57,6 +57,14 @@
   --space-stage: 87px;        /* Home image distance from top and bottom */
 
   /* ---------- Components ---------- */
+  --nav-links-gap: 40px;      /* space between Index and Info, room for ( ) */
+  --bracket-gap: 1px;         /* space between a word and its hover ( ) */
+
+  /* Home counter that follows the mouse. White + difference = black on white,
+     inverted on photos, so it's always readable. */
+  --cursor-color: #fff;
+  --cursor-blend: difference;
+
   --menu-icon-width: 18px;
   --menu-icon-gap: 5px;
   --menu-icon-stroke: 1px;

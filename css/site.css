@@ -116,7 +116,74 @@ body {
 .nav__links {
   grid-column: 5 / span 4;
   justify-self: center;
+  display: flex;
+  gap: var(--nav-links-gap);
   white-space: nowrap;
+}
+
+/* ---------- Hover parentheses ----------
+   Drawn outside the word (absolute), so nothing around it moves. */
+
+.brackets {
+  position: relative;
+}
+
+@media (hover: hover) {
+  .brackets:hover::before,
+  .brackets:hover::after {
+    position: absolute;
+    top: 0;
+    font-style: normal;
+    font-weight: var(--font-weight-regular);
+  }
+
+  .brackets:hover::before {
+    content: "(";
+    right: 100%;
+    margin-right: var(--bracket-gap);
+  }
+
+  .brackets:hover::after {
+    content: ")";
+    left: 100%;
+    margin-left: var(--bracket-gap);
+  }
+}
+
+/* ---------- Counter cursor (Home, mouse only) ---------- */
+
+.cursor {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home {
+    cursor: none;
+  }
+
+  .home .nav {
+    cursor: default;
+  }
+
+  .home .counter {
+    display: none;
+  }
+
+  .cursor {
+    position: fixed;
+    z-index: 20;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    font-size: var(--text-caption-size);
+    line-height: var(--text-caption-leading);
+    color: var(--cursor-color);
+    mix-blend-mode: var(--cursor-blend);
+    white-space: nowrap;
+  }
+
+  .cursor.is-visible {
+    display: block;
+  }
 }
 
 .nav__role {

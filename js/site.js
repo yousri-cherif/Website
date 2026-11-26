@@ -18,11 +18,24 @@ if (stage) {
   const counter = document.querySelector(".counter");
   let current = 0;
 
+  // Counter that follows the mouse (hidden over the nav). CSS shows it only for mouse users.
+  const cursor = document.createElement("div");
+  cursor.className = "cursor";
+  cursor.setAttribute("aria-hidden", "true");
+  document.body.append(cursor);
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+    cursor.classList.toggle("is-visible", !e.target.closest(".nav, .menu"));
+  });
+  document.documentElement.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
+
   const show = (i) => {
     images[current].hidden = true;
     current = (i + images.length) % images.length;
     images[current].hidden = false;
-    counter.textContent = `${current + 1}/${images.length}`;
+    counter.textContent = cursor.textContent = `${current + 1}/${images.length}`;
   };
 
   document.addEventListener("click", (e) => {

@@ -30,7 +30,8 @@ The Figma file (Website 2.0) is the visual reference.
 - There is no Close button anywhere on the site.
 
 ## Nav
-- Desktop: "Yousri Cherif" on the left, `Index, Info` at the center, "Photographer" on the right.
+- Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma, 40px apart) at the center, "Photographer" on the right.
+- On hover, links get parentheses: (Index). They are drawn outside the word, so nothing moves.
 - Mobile: the name on the left and `Index, Info` on the right.
 - The name is in medium weight (500). The current page in the nav is medium italic (tokens `--nav-current-weight` and `--nav-current-style`). The hovered project in Index is italic.
 
@@ -48,7 +49,7 @@ The Figma file (Website 2.0) is the visual reference.
 ## Code
 - Pages: `index.html` (Home), `index/index.html` (Index), `info/index.html` (Info).
 - One script for all pages: `js/site.js` (mobile menu, Home click, Index hover).
-- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too. The cursor stays normal; only links show a pointer.
+- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav it returns to normal. On touch screens the counter stays at the bottom center.
 - Preview on your Mac: run `python3 -m http.server 4321`, then open http://localhost:4321.
 
 ## Workflow
