@@ -64,7 +64,7 @@
   --space-page-bottom: 80px;
   --space-section: 48px;    /* between About and Contact */
   --space-paragraph: 16px;  /* between paragraphs */
-  --space-stage: 87px;      /* Home image distance from top and bottom */
+  --space-stage: 72px;      /* Home image distance from top and bottom (36px clear of nav and counter) */
 
   --content-column-start: 7; /* Index list and Info text */
   --info-column-span: 4;
@@ -93,6 +93,5 @@
   :root {
     --grid-columns: 1;
     --space-page-top: 112px;
-    --space-stage: 72px;
   }
 }
