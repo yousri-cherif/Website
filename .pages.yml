@@ -22,7 +22,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{name}"
+            summary: "{name} · {status}"
         fields:
           - name: name
             label: Name
@@ -35,10 +35,14 @@ content:
             required: true
             options:
               values: [editorial, commercial, personal]
-          - name: visible
-            label: Show on website
-            type: boolean
-            default: true
+          - name: status
+            label: Status
+            description: Only shown projects appear on the website. New projects start hidden.
+            type: select
+            required: true
+            default: hidden
+            options:
+              values: [shown, hidden]
           - name: images
             label: Images
             description: Drag to reorder. The first image is also the preview on Index and under other projects.

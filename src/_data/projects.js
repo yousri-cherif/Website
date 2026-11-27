@@ -1,5 +1,5 @@
 // The projects shown on the site, in the order set in the CMS.
-// Projects switched off ("Show on website") are left out everywhere.
+// Projects with status "hidden" are left out everywhere.
 // Each project's web address comes from its name.
 
 import { readContent, slugify } from "../../lib/content.js";
@@ -7,7 +7,7 @@ import { readContent, slugify } from "../../lib/content.js";
 export default async function () {
   const { projects } = await readContent("projects");
   const shown = projects
-    .filter((project) => project.visible)
+    .filter((project) => project.status === "shown")
     .map((project) => ({ ...project, slug: slugify(project.name) }));
 
   const slugs = shown.map((project) => project.slug);
