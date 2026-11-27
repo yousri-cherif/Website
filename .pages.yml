@@ -18,7 +18,6 @@ content:
     fields:
       - name: projects
         label: Projects
-        description: Drag to change the order on Index.
         type: object
         list:
           collapsible:
@@ -55,7 +54,6 @@ content:
     fields:
       - name: images
         label: Images
-        description: Shown one at a time, in this order.
         type: object
         list:
           collapsible:
