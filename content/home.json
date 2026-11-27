@@ -1,10 +1,6 @@
 {
   "images": [
     {
-      "image": "/images/film-01.jpg",
-      "alt": "Portrait on film"
-    },
-    {
       "image": "/images/wael-01.jpg",
       "alt": "Wael"
     },
