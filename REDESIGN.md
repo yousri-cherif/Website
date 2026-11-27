@@ -51,12 +51,18 @@ The Figma file (Website 2.0) is the visual reference.
 
 ## Code
 - The site is built with Eleventy: templates in `src/` become plain HTML in `_site/` (not committed).
-- Content lives in data files, not in pages:
-  - `src/_data/projects.json`: every project (slug, name, type, images). Adding a project there creates its page, its Index line and its place in the "next projects" row.
-  - `src/_data/home.json`: the Home images, in order.
+- Content lives in `content/`, edited in Pages CMS (setup in `.pages.yml`); design and layout stay in code:
+  - `content/projects.json`: every project (name, type, show on website, images), in Index order. A shown project gets its page, its Index line and a place among the "more projects". Its web address comes from its name.
+  - `content/home.json`: the Home images, in order.
+  - `content/info.json`: the Info text (about, Instagram, email, contact note).
+  - `src/_data/` reads these files and shapes them for the pages (only shown projects, web addresses). `lib/` holds the helpers.
+  - When a page gets a new piece of content, add its field to `.pages.yml` and the template in the same commit.
 - Shared layout (head, nav, mobile menu): `src/_includes/base.njk`.
 - Pages: `src/index.njk` (Home), `src/index/index.njk` (Index), `src/info/index.njk` (Info), `src/projects/project.njk` (one page per project), `src/404.njk`.
-- Images: originals in `src/images/`. The build converts every page image to WebP (max 2000px wide) and adds its width and height, so pages don't jump while loading.
+- Images: originals in `src/images/`. The build converts every page image to WebP (max 2000px wide) and adds its width and height, so pages don't jump while loading. Visitors only download these copies.
+  - Export originals as JPG, sRGB, long edge 2000px, quality 85.
+  - Names: lowercase with dashes, `project-number.jpg` (e.g. `alaia-01.jpg`). Order is set in the CMS, not by the number.
+  - The build stops if an original is over 10 MB (`lib/check-images.js`), so camera files never land in Git's history.
 - One script for all pages: `src/js/site.js` (mobile menu, Home click, Index hover).
 - Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav it returns to normal. On touch screens the counter stays at the bottom center.
 - Preview on your Mac: run `npm start` in the project folder, then open http://localhost:4321. It rebuilds and reloads on every change.
@@ -75,3 +81,4 @@ The Figma file (Website 2.0) is the visual reference.
 - To launch:
   1. In GitHub: Settings → Pages → Source: "GitHub Actions" (the site is now built, not served as raw files).
   2. Merge the pull request into `main`. `.github/workflows/deploy.yml` builds and publishes it.
+  3. In Pages CMS, switch the branch to `main`: from then on every save goes live within about a minute.

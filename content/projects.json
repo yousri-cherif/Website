@@ -1,0 +1,101 @@
+{
+  "projects": [
+    {
+      "name": "Alaia",
+      "type": "editorial",
+      "visible": true,
+      "images": [
+        "/images/alaia-01.jpg",
+        "/images/alaia-02.jpg",
+        "/images/alaia-03.jpg",
+        "/images/alaia-04.jpg",
+        "/images/alaia-05.jpg",
+        "/images/alaia-06.jpg",
+        "/images/alaia-07.jpg"
+      ]
+    },
+    {
+      "name": "White Suit",
+      "type": "editorial",
+      "visible": true,
+      "images": [
+        "/images/charlotte-02.jpg",
+        "/images/charlotte-01.jpg"
+      ]
+    },
+    {
+      "name": "Red Door",
+      "type": "editorial",
+      "visible": true,
+      "images": [
+        "/images/annie-01.jpg"
+      ]
+    },
+    {
+      "name": "Brothers",
+      "type": "personal",
+      "visible": true,
+      "images": [
+        "/images/wael-alaa-01.jpg"
+      ]
+    },
+    {
+      "name": "Nihed",
+      "type": "personal",
+      "visible": true,
+      "images": [
+        "/images/nihed-01.jpg"
+      ]
+    },
+    {
+      "name": "Green Sweater",
+      "type": "personal",
+      "visible": true,
+      "images": [
+        "/images/walid-01.jpg"
+      ]
+    },
+    {
+      "name": "Sasha",
+      "type": "editorial",
+      "visible": true,
+      "images": [
+        "/images/sasha-01.jpg",
+        "/images/sasha-02.jpg"
+      ]
+    },
+    {
+      "name": "Ameni",
+      "type": "personal",
+      "visible": true,
+      "images": [
+        "/images/ameni-01.jpg",
+        "/images/ameni-02.jpg"
+      ]
+    },
+    {
+      "name": "Wael",
+      "type": "personal",
+      "visible": true,
+      "images": [
+        "/images/wael-01.jpg"
+      ]
+    },
+    {
+      "name": "Abdou",
+      "type": "personal",
+      "visible": true,
+      "images": [
+        "/images/abdou-01.jpg"
+      ]
+    },
+    {
+      "name": "Achref",
+      "type": "personal",
+      "visible": true,
+      "images": [
+        "/images/achref-01.jpg"
+      ]
+    }
+  ]
+}

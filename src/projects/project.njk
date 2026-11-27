@@ -9,7 +9,7 @@ eleventyComputed:
   title: "{{ project.name }}"
   description: "{{ project.name }}, {{ project.type }}. Photography by Yousri Cherif."
 ---
-{#- One page per project in _data/projects.json.
+{#- One page per project shown on the site (see _data/projects.js).
     The images scroll one after another; at the end, a few other
     projects sit alone in the center. Every other project is listed;
     the script shows a random selection of `suggestions` of them on
@@ -22,14 +22,14 @@ eleventyComputed:
 
       <div class="project__images">
         {%- for image in project.images %}
-        <img src="/images/{{ image }}" alt="{{ project.name }}, image {{ loop.index }} of {{ project.images | length }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async" />
+        <img src="{{ image }}" alt="{{ project.name }}, image {{ loop.index }} of {{ project.images | length }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async" />
         {%- endfor %}
       </div>
 
       <nav class="project__more" aria-label="More projects" data-suggestions="{{ suggestions }}">
         {%- for step in range(1, count) %}
         {%- set other = projects[(index + step) % count] %}
-        <a href="/projects/{{ other.slug }}/"{% if step > suggestions %} hidden{% endif %}><img src="/images/{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
+        <a href="/projects/{{ other.slug }}/"{% if step > suggestions %} hidden{% endif %}><img src="{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
         {%- endfor %}
       </nav>
     </main>

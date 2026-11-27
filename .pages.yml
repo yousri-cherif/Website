@@ -1,0 +1,97 @@
+# Pages CMS (https://pagescms.org) setup: what can be edited, and how.
+# Content lives in content/, images in src/images/. Design and layout
+# stay in code. When a page gets a new piece of content, add its field
+# here and in the template in the same commit.
+
+media:
+  input: src/images
+  output: /images
+  categories: [image]
+  rename: safe
+
+content:
+  - name: projects
+    label: Projects
+    type: file
+    path: content/projects.json
+    format: json
+    fields:
+      - name: projects
+        label: Projects
+        description: Drag to change the order on Index.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Name
+            description: Also sets the web address, e.g. "White Suit" → /projects/white-suit/
+            type: string
+            required: true
+          - name: type
+            label: Type
+            type: select
+            required: true
+            options:
+              values: [editorial, commercial, personal]
+          - name: visible
+            label: Show on website
+            type: boolean
+            default: true
+          - name: images
+            label: Images
+            description: Drag to reorder. The first image is also the preview on Index and under other projects.
+            type: image
+            list: true
+            required: true
+
+  - name: home
+    label: Home
+    type: file
+    path: content/home.json
+    format: json
+    fields:
+      - name: images
+        label: Images
+        description: Shown one at a time, in this order.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields:
+          - name: image
+            label: Image
+            type: image
+            required: true
+          - name: alt
+            label: Description
+            description: A few words for screen readers, e.g. "Portrait on film".
+            type: string
+            required: true
+
+  - name: info
+    label: Info
+    type: file
+    path: content/info.json
+    format: json
+    fields:
+      - name: about
+        label: About
+        description: Leave a blank line between paragraphs.
+        type: text
+        required: true
+      - name: instagram
+        label: Instagram
+        description: Your handle without the @, e.g. yousri.cherif
+        type: string
+        required: true
+      - name: email
+        label: Email
+        type: string
+        required: true
+      - name: contactNote
+        label: Contact note
+        type: string

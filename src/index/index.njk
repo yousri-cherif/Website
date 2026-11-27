@@ -8,7 +8,7 @@ description: "Projects by Yousri Cherif: editorial, commercial and personal work
 
       <ul class="projects">
         {%- for project in projects %}
-        <li data-preview="/images/{{ project.images[0] }}"><a href="/projects/{{ project.slug }}/">{{ project.name }}, {{ project.type }}</a></li>
+        <li data-preview="{{ project.images[0] }}"><a href="/projects/{{ project.slug }}/">{{ project.name }}, {{ project.type }}</a></li>
         {%- endfor %}
       </ul>
     </main>
