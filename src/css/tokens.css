@@ -65,7 +65,7 @@
   --space-section: 48px;    /* between About and Contact */
   --space-paragraph: 16px;  /* between paragraphs */
   --space-stage: 72px;      /* Home image distance from top and bottom (36px clear of nav and counter) */
-  --space-project-gap: 33vh;  /* between images on a project page */
+  --space-project-gap: 16vh;  /* between images on a project page */
   --space-project-end: 50vh;  /* empty space before the next projects */
 
   --content-column-start: 7; /* Index list and Info text */

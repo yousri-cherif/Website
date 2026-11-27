@@ -17,7 +17,7 @@ The Figma file (Website 2.0) is the visual reference.
 - Mobile: no hover, so tapping a line opens the project.
 
 **Project** (opened from Index, at `/projects/<slug>/`)
-- Images scroll vertically, centered, each fitted in a frame one screen tall (portrait and landscape alike), with a third of a screen between them.
+- Images scroll vertically, centered, each fitted in a frame one screen tall (portrait and landscape alike), with about a sixth of a screen between them.
 - After the last image, half a screen of white, then 4 other projects as small previews in a row, picked at random on each visit (never the current one). Clicking one opens that project. Without JavaScript, the next 4 in the list show.
 - Scrolled to the very end, only those previews are visible, centered on an otherwise white screen.
 - The nav stays fixed on top.
