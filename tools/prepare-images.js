@@ -8,7 +8,8 @@
 // - JPG at quality 85,
 // - without metadata (camera data and GPS location are removed),
 // - named project-01.jpg, project-02.jpg… (in file name order),
-// into a new folder "project for website" next to the originals.
+// all into one folder, Pictures/Website. Preparing more photos for the
+// same project later continues the numbering, so nothing is overwritten.
 // The originals are never changed. Uses only what is built into macOS.
 
 ObjC.import("Foundation");
@@ -17,6 +18,7 @@ ObjC.import("CoreGraphics");
 
 const LONG_EDGE = 2000;
 const JPG_QUALITY = 0.85;
+const OUTPUT_FOLDER = `${ObjC.unwrap($.NSHomeDirectory())}/Pictures/Website`;
 
 function run(paths) {
   const app = Application.currentApplication();
@@ -31,14 +33,15 @@ function run(paths) {
   const name = askProjectName(app, photos.length);
   if (!name) return;
 
-  const folder = createOutputFolder(parentFolder(photos[0]), name);
+  createFolder(OUTPUT_FOLDER);
+  const first = highestNumber(OUTPUT_FOLDER, name) + 1;
   photos.forEach((photo, i) => {
-    const number = String(i + 1).padStart(2, "0");
-    saveForWebsite(photo, `${folder}/${name}-${number}.jpg`);
+    const number = String(first + i).padStart(2, "0");
+    saveForWebsite(photo, `${OUTPUT_FOLDER}/${name}-${number}.jpg`);
   });
 
-  app.doShellScript(`open ${quoted(folder)}`);
-  app.displayNotification(`${photos.length} photos in "${lastPart(folder)}"`, {
+  app.doShellScript(`open ${quoted(OUTPUT_FOLDER)}`);
+  app.displayNotification(`${photos.length} photos added to Pictures/Website`, {
     withTitle: "Ready for the website",
   });
 }
@@ -91,14 +94,18 @@ function isImage(path) {
   return /\.(jpe?g|png|heic|tiff?)$/i.test(path);
 }
 
-function createOutputFolder(parent, name) {
-  const manager = $.NSFileManager.defaultManager;
-  let folder = `${parent}/${name} for website`;
-  for (let n = 2; manager.fileExistsAtPath(folder); n++) {
-    folder = `${parent}/${name} for website ${n}`;
-  }
-  manager.createDirectoryAtPathWithIntermediateDirectoriesAttributesError(folder, false, $(), null);
-  return folder;
+function createFolder(folder) {
+  $.NSFileManager.defaultManager.createDirectoryAtPathWithIntermediateDirectoriesAttributesError(folder, true, $(), null);
+}
+
+// The highest number already used for this project in the folder (0 if none).
+function highestNumber(folder, name) {
+  const files = ObjC.deepUnwrap($.NSFileManager.defaultManager.contentsOfDirectoryAtPathError(folder, null)) || [];
+  const pattern = new RegExp(`^${name}-(\\d+)\\.jpg$`);
+  return files.reduce((highest, file) => {
+    const match = file.match(pattern);
+    return match ? Math.max(highest, Number(match[1])) : highest;
+  }, 0);
 }
 
 // Same rule as the website's web addresses: "White Suit" → "white-suit".
@@ -109,14 +116,6 @@ function slugify(text) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-}
-
-function parentFolder(path) {
-  return path.slice(0, path.lastIndexOf("/"));
-}
-
-function lastPart(path) {
-  return path.slice(path.lastIndexOf("/") + 1);
 }
 
 function quoted(path) {

@@ -60,7 +60,7 @@ The Figma file (Website 2.0) is the visual reference.
 - Shared layout (head, nav, mobile menu): `src/_includes/base.njk`.
 - Pages: `src/index.njk` (Home), `src/index/index.njk` (Index), `src/info/index.njk` (Info), `src/projects/project.njk` (one page per project), `src/404.njk`.
 - Images: originals in `src/images/`. The build converts every page image to WebP (max 2000px wide) and adds its width and height, so pages don't jump while loading. Visitors only download these copies.
-  - Prepare photos before uploading: in Finder, select them, right-click → Quick Actions → "Prepare for website", type the project name. It saves copies (long edge 2000px, JPG quality 85, metadata and GPS removed) as `project-01.jpg`, `project-02.jpg`… in a new folder "project for website" next to the originals. Originals stay untouched.
+  - Prepare photos before uploading: in Finder, select them, right-click → Quick Actions → "Prepare for website", type the project name. It saves copies (long edge 2000px, JPG quality 85, metadata and GPS removed) as `project-01.jpg`, `project-02.jpg`… all in one folder, `Pictures/Website`. Preparing more photos for a project later continues its numbering, so nothing is overwritten. Originals stay untouched.
     - Code: `tools/prepare-images.js` (macOS only, nothing to install). The Quick Action, `tools/Prepare for website.workflow`, just runs it.
     - Install or update it on a Mac: copy the `.workflow` to `~/Library/Services/`. It expects the repo at `~/Developer/Website`.
   - Names: lowercase with dashes, `project-number.jpg` (e.g. `alaia-01.jpg`). Order is set in the CMS, not by the number.
