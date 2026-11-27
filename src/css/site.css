@@ -350,9 +350,27 @@ body {
   width: auto;
 }
 
+/* How many previews show: 4, then 3 on medium screens, 2 on small ones
+   (see Small screens). Hidden ones never load their image. CSS can't
+   use a variable in a selector, so the counts are written here. */
+.project__more a:nth-child(n + 5) {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .project__more a:nth-child(n + 4) {
+    display: none;
+  }
+}
+
 /* ---------- Small screens (breakpoint also in tokens.css) ---------- */
 
 @media (max-width: 767px) {
+  /* Project page: two previews */
+  .project__more a:nth-child(n + 3) {
+    display: none;
+  }
+
   /* Nav: name left, menu button right */
   .nav {
     grid-template-columns: 1fr auto;

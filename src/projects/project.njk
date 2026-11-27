@@ -11,12 +11,11 @@ eleventyComputed:
 ---
 {#- One page per project shown on the site (see _data/projects.js).
     The images scroll one after another; at the end, a few other
-    projects sit alone in the center. Every other project is listed;
-    the script shows a random selection of `suggestions` of them on
-    each visit. Without the script, the next ones in the list show. -#}
+    projects sit alone in the center. Every other project is listed,
+    starting with the next ones; CSS shows the first few and the
+    script shuffles the list, so they are a random pick on each visit. -#}
 {%- set count = projects | length %}
 {%- set index = pagination.pageNumber %}
-{%- set suggestions = 4 %}
     <main class="project">
       <h1 class="visually-hidden">{{ project.name }}, {{ project.type }}</h1>
 
@@ -26,10 +25,10 @@ eleventyComputed:
         {%- endfor %}
       </div>
 
-      <nav class="project__more" aria-label="More projects" data-suggestions="{{ suggestions }}">
+      <nav class="project__more" aria-label="More projects">
         {%- for step in range(1, count) %}
         {%- set other = projects[(index + step) % count] %}
-        <a href="/projects/{{ other.slug }}/"{% if step > suggestions %} hidden{% endif %}><img src="{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
+        <a href="/projects/{{ other.slug }}/"><img src="{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
         {%- endfor %}
       </nav>
     </main>

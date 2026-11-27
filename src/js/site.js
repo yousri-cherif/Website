@@ -91,19 +91,14 @@ function initIndexPreview() {
   }
 }
 
-// Project page: the page lists every other project; show a random few
-// (data-suggestions), in random order. Hidden ones never load their image.
+// Project page: the page lists every other project and CSS shows the
+// first few (how many depends on the screen width). Shuffling the list
+// makes those few a random pick on each visit.
 function initProjectSuggestions() {
   const more = document.querySelector(".project__more");
   if (!more) return;
 
-  const links = shuffle([...more.querySelectorAll("a")]);
-  const shown = Number(more.dataset.suggestions);
-
-  links.forEach((link, i) => {
-    link.hidden = i >= shown;
-  });
-  more.append(...links.slice(0, shown));
+  more.append(...shuffle([...more.querySelectorAll("a")]));
 }
 
 // Fisher–Yates: every order is equally likely.
