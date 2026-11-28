@@ -47,9 +47,10 @@ function initHome() {
     show(e.clientX < window.innerWidth / 2 ? current - 1 : current + 1);
   });
 
+  // Left and up go back, right and down go forward.
+  const steps = { ArrowLeft: -1, ArrowUp: -1, ArrowRight: 1, ArrowDown: 1 };
   document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") show(current - 1);
-    if (e.key === "ArrowRight") show(current + 1);
+    if (e.key in steps) show(current + steps[e.key]);
   });
 
   document.addEventListener("mousemove", (e) => {
