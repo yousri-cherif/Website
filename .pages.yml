@@ -45,10 +45,14 @@ content:
               values: [shown, hidden]
           - name: images
             label: Images
-            description: Drag to reorder. The first image is also the preview on Index and under other projects.
+            description: Drag to reorder.
             type: image
             list: true
             required: true
+          - name: preview
+            label: Preview image
+            description: Shown on Index and under Related projects. Pick one of this project's images, or leave empty to use the first one.
+            type: image
 
   - name: home
     label: Home

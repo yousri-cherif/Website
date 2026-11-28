@@ -30,7 +30,7 @@ eleventyComputed:
         <nav class="project__more-list" aria-labelledby="related">
           {%- for step in range(1, count) %}
           {%- set other = projects[(index + step) % count] %}
-          <a href="/projects/{{ other.slug }}/"><img src="{{ other.images[0] }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
+          <a href="/projects/{{ other.slug }}/"><img src="{{ other.preview }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
           {%- endfor %}
         </nav>
       </section>

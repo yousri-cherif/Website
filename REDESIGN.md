@@ -52,7 +52,7 @@ The Figma file (Website 2.0) is the visual reference.
 ## Code
 - The site is built with Eleventy: templates in `src/` become plain HTML in `_site/` (not committed).
 - Content lives in `content/`, edited in Pages CMS (setup in `.pages.yml`); design and layout stay in code:
-  - `content/projects.json`: every project (name, type, status shown/hidden, images), in Index order. A shown project gets its page, its Index line and a place among the "more projects". Its web address comes from its name.
+  - `content/projects.json`: every project (name, type, status shown/hidden, images, preview image), in Index order. The preview image shows on Index and under Related projects; if empty, the first image is used. A shown project gets its page, its Index line and a place among the "more projects". Its web address comes from its name.
   - `content/home.json`: the Home images, in order.
   - `content/info.json`: the Info text (about, Instagram, email, contact note).
   - `src/_data/` reads these files and shapes them for the pages (only shown projects, web addresses). `lib/` holds the helpers.
