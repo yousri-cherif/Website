@@ -108,12 +108,24 @@ body {
   font-weight: var(--name-weight);
 }
 
+/* Index and Info sit on the page columns: Index ends where column 6
+   ends (the Index preview's right edge), Info starts where column 7
+   starts (the page content). The two halves of columns 5–8 are
+   exactly columns 5–6 and 7–8. Their ( ) hang outside the words. */
 .nav__links {
   grid-column: 5 / span 4;
-  justify-self: center;
-  display: flex;
-  gap: var(--nav-links-gap);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--space-gutter);
   white-space: nowrap;
+}
+
+.nav__links > :first-child {
+  justify-self: end;
+}
+
+.nav__links > :last-child {
+  justify-self: start;
 }
 
 .nav__role {
@@ -156,9 +168,9 @@ body {
   margin-left: var(--bracket-gap);
 }
 
-/* Hanging variant, for words flush with the page edge (Close):
-   the ( ) sit outside the word and take no space, so the word
-   itself stays aligned with the margin. With no top or bottom set,
+/* Hanging variant, for words aligned to an edge (Close, and Index
+   and Info on their columns): the ( ) sit outside the word and take
+   no space, so the word itself stays aligned. With no top or bottom set,
    they keep their place on the text line. */
 .brackets--hang {
   position: relative;

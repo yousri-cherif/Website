@@ -31,8 +31,8 @@ The Figma file (Website 2.0) is the visual reference.
 - There is no Close button anywhere on the site.
 
 ## Nav
-- Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma, 32px apart plus the invisible parentheses) at the center, "Photographer" on the right.
-- Index and Info get parentheses on hover, and the current page keeps them, also in the mobile menu: (Index). Close gets them on hover too, hanging outside the word so it stays flush with the margin. Never on the name. The parentheses are part of the text line, always there but invisible until shown, so they align with the text and nothing moves.
+- Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma) at the center, on the page columns: "Index" ends where column 6 ends (the Index preview's right edge), "Info" starts at column 7 (the page content), one gutter apart, "Photographer" on the right.
+- Index and Info get parentheses on hover, and the current page keeps them, also in the mobile menu: (Index). In the desktop nav and on Close, they hang outside the word, so the word itself stays aligned. Never on the name. The parentheses are part of the text line, always there but invisible until shown, so nothing moves.
 - Small screens: the name on the left and the word "Menu" on the right. It opens a full-screen menu with Index and Info centered and turns into "Close".
 - Over photos the nav stays readable: it's white with a "difference" blend, so it shows black on white and inverts over images (as on anadominguez.es).
 - The name is in medium weight (500). The current page in the nav is medium italic (tokens `--nav-current-weight` and `--nav-current-style`). The hovered project in Index is italic.
@@ -40,7 +40,7 @@ The Figma file (Website 2.0) is the visual reference.
 ## Type and grid
 - Ubuntu Sans 12/16 everywhere (Regular, Medium, Italic, Medium Italic). Pure black `#000` on pure white `#fff`, never grey.
 - Selected text: white on black, as on anadominguez.es.
-- Desktop grid: 12 columns, 20px margin, 20px gutter.
+- Desktop grid: 12 columns, 20px margin, 24px gutter.
 
 ## Design system
 - Every value (font, text sizes, colors, margins, spacing, columns) lives in `src/css/tokens.css`. Change it there and it updates on every page.

@@ -59,7 +59,7 @@
   /* ---------- Layout ---------- */
   --grid-columns: 12;
   --space-margin: 20px;     /* outer page margin */
-  --space-gutter: 20px;     /* gap between grid columns */
+  --space-gutter: 24px;     /* gap between grid columns */
   --space-page-top: 148px;  /* where Index and Info content starts */
   --space-page-bottom: 80px;
   --space-section: 48px;    /* between About and Contact */
@@ -83,7 +83,6 @@
 
   --project-thumb-height: 280px; /* next-project previews at the end of a project */
 
-  --nav-links-gap: 32px; /* between Index and Info, plus the hidden ( ) */
   --bracket-gap: 1px;    /* between a word and its ( ) */
 
   /* The counter cursor is paper-colored and inverts what's under it:
