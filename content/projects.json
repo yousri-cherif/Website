@@ -83,9 +83,10 @@
     {
       "name": "Wael",
       "type": "personal",
-      "status": "hidden",
+      "status": "shown",
       "images": [
-        "/images/wael-01.jpg"
+        "/images/wael-02.jpg",
+        "/images/wael-03.jpg"
       ]
     },
     {
