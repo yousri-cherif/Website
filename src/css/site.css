@@ -125,6 +125,7 @@ body {
   grid-column: 1 / span 4;
   justify-self: start;
   font-weight: var(--name-weight);
+  text-transform: var(--name-case);
 }
 
 /* Index and Info: a center pair (see Base), so Index ends at the

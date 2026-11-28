@@ -51,6 +51,7 @@
      weight: var(--font-weight-regular) or var(--font-weight-strong)
      style:  normal or italic */
   --name-weight: var(--font-weight-strong);         /* Yousri Cherif */
+  --name-case: uppercase;                           /* YOUSRI CHERIF; none for normal case */
   --heading-weight: var(--font-weight-strong);      /* About, Contact */
   --nav-current-weight: var(--font-weight-strong);  /* current page */
   --nav-current-style: italic;
