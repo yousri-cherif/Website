@@ -95,10 +95,10 @@ function initIndexPreview() {
 // first few (how many depends on the screen width). Shuffling the list
 // makes those few a random pick on each visit.
 function initProjectSuggestions() {
-  const more = document.querySelector(".project__more");
-  if (!more) return;
+  const list = document.querySelector(".project__more-list");
+  if (!list) return;
 
-  more.append(...shuffle([...more.querySelectorAll("a")]));
+  list.append(...shuffle([...list.querySelectorAll("a")]));
 }
 
 // Fisher–Yates: every order is equally likely.

@@ -24,6 +24,12 @@ img {
   display: block;
 }
 
+/* Headings look like body text unless a class says otherwise (.label). */
+h1,
+h2 {
+  font: inherit;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -334,25 +340,41 @@ body {
   object-fit: contain;
 }
 
+/* The last screen, on an otherwise white screen: the previews sit
+   exactly in the middle (between two equal rows of space), and
+   "Related projects" sits at the bottom of the row above them. */
 .project__more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-gutter);
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  justify-items: center;
   min-height: 100vh;
   min-height: 100svh;
   margin-top: var(--space-project-end);
   padding: 0 var(--space-margin);
 }
 
+.project__more-title {
+  align-self: end;
+  padding-bottom: var(--space-related-label);
+}
+
+.project__more-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-gutter);
+  min-width: 0;
+  max-width: 100%;
+}
+
 /* Previews have a fixed height (token). If a screen is too narrow for
    the row, they shrink to fit inside the margins instead of overflowing:
    the links may shrink, and each photo scales down within its link. */
-.project__more a {
+.project__more-list a {
   min-width: 0;
 }
 
-.project__more img {
+.project__more-list img {
   height: var(--project-thumb-height);
   width: auto;
   max-width: 100%;
@@ -362,12 +384,12 @@ body {
 /* How many previews show: 4, then 3 on medium screens, 2 on small ones
    (see Small screens). Hidden ones never load their image. CSS can't
    use a variable in a selector, so the counts are written here. */
-.project__more a:nth-child(n + 5) {
+.project__more-list a:nth-child(n + 5) {
   display: none;
 }
 
 @media (max-width: 1023px) {
-  .project__more a:nth-child(n + 4) {
+  .project__more-list a:nth-child(n + 4) {
     display: none;
   }
 }
@@ -376,7 +398,7 @@ body {
 
 @media (max-width: 767px) {
   /* Project page: two previews */
-  .project__more a:nth-child(n + 3) {
+  .project__more-list a:nth-child(n + 3) {
     display: none;
   }
 
