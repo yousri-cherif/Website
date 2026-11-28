@@ -31,7 +31,7 @@
     {
       "name": "White Suit",
       "type": "editorial",
-      "status": "hidden",
+      "status": "shown",
       "images": [
         "/images/charlotte-02.jpg",
         "/images/charlotte-01.jpg"
@@ -40,7 +40,7 @@
     {
       "name": "Red Door",
       "type": "editorial",
-      "status": "hidden",
+      "status": "shown",
       "images": [
         "/images/annie-01.jpg"
       ]
@@ -64,7 +64,7 @@
     {
       "name": "Sasha",
       "type": "editorial",
-      "status": "hidden",
+      "status": "shown",
       "images": [
         "/images/sasha-01.jpg",
         "/images/sasha-02.jpg"
@@ -73,7 +73,7 @@
     {
       "name": "Ameni",
       "type": "personal",
-      "status": "hidden",
+      "status": "shown",
       "images": [
         "/images/ameni-01.jpg",
         "/images/ameni-02.jpg"
