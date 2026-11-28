@@ -5,24 +5,28 @@
       "alt": "Wael"
     },
     {
-      "image": "/images/alaia-10.jpg",
-      "alt": "Alaia"
-    },
-    {
       "image": "/images/wael-02.jpg",
       "alt": "Wael"
+    },
+    {
+      "image": "/images/alaia-10.jpg",
+      "alt": "Alaia"
     },
     {
       "image": "/images/annie-01.jpg",
       "alt": "Annie"
     },
     {
-      "image": "/images/nihed-01.jpg",
-      "alt": "Nihed"
+      "image": "/images/abdou-01.jpg",
+      "alt": "Abdou"
     },
     {
-      "image": "/images/sasha-01.jpg",
-      "alt": "Sasha"
+      "image": "/images/alaia-06.jpg",
+      "alt": "alaia"
+    },
+    {
+      "image": "/images/wael-alaa-01.jpg",
+      "alt": "Brothers"
     }
   ]
 }
