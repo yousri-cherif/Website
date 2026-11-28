@@ -136,7 +136,8 @@ body {
   white-space: nowrap;
 }
 
-.nav__role {
+/* "Grid": plain text for now, a placeholder for a future grid view. */
+.nav__grid {
   grid-column: 9 / span 4;
   justify-self: end;
 }
@@ -456,7 +457,7 @@ body {
   }
 
   .nav__links,
-  .nav__role {
+  .nav__grid {
     display: none;
   }
 

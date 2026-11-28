@@ -33,7 +33,7 @@ The Figma file (Website 2.0) is the visual reference.
 - There is no Close button anywhere on the site.
 
 ## Nav
-- Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma) at the center, on the page columns: "Index" ends where column 6 ends (the Index preview's right edge), "Info" starts at column 7 (the page content), one gutter apart, "Photographer" on the right.
+- Desktop: "Yousri Cherif" on the left, `Index   Info` (no comma) at the center, on the page columns: "Index" ends where column 6 ends (the Index preview's right edge), "Info" starts at column 7 (the page content), one gutter apart, "Grid" on the right (plain text for now, a placeholder for a future grid view).
 - Index and Info get parentheses on hover, and the current page keeps them, also in the mobile menu: (Index). In the desktop nav and on Close, they hang outside the word, so the word itself stays aligned. Never on the name. The parentheses are part of the text line, always there but invisible until shown, so nothing moves.
 - Small screens: the name on the left and the word "Menu" on the right. It opens a full-screen menu with Index and Info centered and turns into "Close".
 - Over photos the nav stays readable: it's white with a "difference" blend, so it shows black on white and inverts over images (as on anadominguez.es).
