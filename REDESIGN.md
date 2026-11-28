@@ -66,7 +66,7 @@ The Figma file (Website 2.0) is the visual reference.
   - Names: lowercase with dashes, `project-number.jpg` (e.g. `alaia-01.jpg`). Order is set in the CMS, not by the number.
   - The build stops if an original is over 10 MB (`lib/check-images.js`), so camera files never land in Git's history.
 - One script for all pages: `src/js/site.js` (mobile menu, Home click, Index hover).
-- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too: left and up go back, right and down go forward. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav it returns to normal. On touch screens the counter stays at the bottom center.
+- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too: right and up go forward (the counter goes up), left and down go back. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav it returns to normal. On touch screens the counter stays at the bottom center.
 - Preview on your Mac: run `npm start` in the project folder, then open http://localhost:4321. It rebuilds and reloads on every change.
 
 ## Code rules

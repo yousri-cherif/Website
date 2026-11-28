@@ -47,8 +47,8 @@ function initHome() {
     show(e.clientX < window.innerWidth / 2 ? current - 1 : current + 1);
   });
 
-  // Left and up go back, right and down go forward.
-  const steps = { ArrowLeft: -1, ArrowUp: -1, ArrowRight: 1, ArrowDown: 1 };
+  // Right and up go forward (the counter goes up), left and down go back.
+  const steps = { ArrowLeft: -1, ArrowDown: -1, ArrowRight: 1, ArrowUp: 1 };
   document.addEventListener("keydown", (e) => {
     if (e.key in steps) show(current + steps[e.key]);
   });
