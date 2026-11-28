@@ -1,0 +1,44 @@
+---
+layout: base.njk
+bodyClass: has-counter-cursor
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "/projects/{{ project.slug }}/"
+eleventyComputed:
+  title: "{{ project.name }}"
+  description: "{{ project.name }}, {{ project.type }}. Photography by Yousri Cherif."
+---
+{#- One page per project shown on the site (see _data/projects.js).
+    The images scroll one after another; at the end, a few other
+    projects sit alone in the center. Every other project is listed,
+    starting with the next ones; CSS shows the first few and the
+    script shuffles the list, so they are a random pick on each visit. -#}
+{%- set count = projects | length %}
+{%- set index = pagination.pageNumber %}
+    <main class="project">
+      <h1 class="visually-hidden">{{ project.name }}, {{ project.type }}</h1>
+
+      <div class="project__images">
+        {%- for image in project.images %}
+        <img src="{{ image }}" alt="{{ project.name }}, image {{ loop.index }} of {{ project.images | length }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async" />
+        {%- endfor %}
+      </div>
+
+      {#- Large screens: the project name at the bottom center while the
+          images scroll, then resting below the last image (see
+          site.css). The image counter is the mouse pointer. The heading
+          already names the project, so screen readers skip this. #}
+      <p class="project__caption" aria-hidden="true">{{ project.name }}</p>
+
+      <section class="project__more">
+        <h2 class="project__more-title" id="related">Related projects</h2>
+        <nav class="project__more-list" aria-labelledby="related">
+          {%- for step in range(1, count) %}
+          {%- set other = projects[(index + step) % count] %}
+          <a href="/projects/{{ other.slug }}/"><img src="{{ other.preview }}" alt="{{ other.name }}" loading="lazy" decoding="async" /></a>
+          {%- endfor %}
+        </nav>
+      </section>
+    </main>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title %}{{ title }} · {% endif %}Yousri Cherif</title>
+    <meta name="description" content="{{ description or 'Yousri Cherif, portrait and fashion photographer based between Munich and Tunis.' }}" />
+    <meta name="author" content="Yousri Cherif" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="/css/site.css" />
+    <script defer src="/js/site.js"></script>
+  </head>
+
+  {#- A nav link, marked as the current page when its URL matches. -#}
+  {%- macro navLink(url, label, class) -%}
+    <a class="{{ class }}" href="{{ url }}"{% if page.url == url %} aria-current="page"{% endif %}>{{ label }}</a>
+  {%- endmacro %}
+
+  <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+    <header class="nav grid">
+      <a class="nav__name" href="/">Yousri Cherif</a>
+      <nav class="nav__links center-pair">{{ navLink("/index/", "Index", "brackets brackets--hang") }}{{ navLink("/info/", "Info", "brackets brackets--hang") }}</nav>
+      <span class="nav__grid">Grid</span>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="menu">
+        <span class="nav__toggle-open brackets brackets--hang">Menu</span>
+        <span class="nav__toggle-close brackets brackets--hang">Close</span>
+      </button>
+    </header>
+    <nav class="menu" id="menu">
+      {{ navLink("/index/", "Index", "brackets") }}
+      {{ navLink("/info/", "Info", "brackets") }}
+    </nav>
+
+{{ content | safe }}
+  </body>
+</html>

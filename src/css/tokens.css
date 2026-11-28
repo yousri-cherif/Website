@@ -1,0 +1,106 @@
+/* =========================================================
+   DESIGN TOKENS
+   The only place to change how the site looks. site.css uses
+   these names and holds no raw values. Change a value here
+   and it updates on every page.
+   ========================================================= */
+
+/* Font file. To change the font, edit this URL and --font-family. */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+
+:root {
+  /* ---------- Color ----------
+     Pure black on pure white, as on anadominguez.es. */
+  --color-ink: #000;   /* text, icons */
+  --color-paper: #fff; /* background */
+
+  /* Selected text: white on black. The 99% keeps browsers from
+     fading a fully opaque selection color. */
+  --color-selection-text: var(--color-paper);
+  --color-selection-background: color-mix(in srgb, var(--color-ink) 99%, transparent);
+
+  /* ---------- Font ---------- */
+  --font-family: "Ubuntu Sans", system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-strong: 500;
+
+  /* ---------- Base sizes ----------
+     Change these to scale all text that uses them. */
+  --size-s: 14px;
+  --leading-s: 18px;
+  --size-xs: 10px;
+  --leading-xs: 12px;
+
+  /* ---------- Text roles ----------
+     Each role points to a base size. To make one role bigger,
+     point it to another size. */
+  --text-body-size: var(--size-s);         /* paragraphs, Index list */
+  --text-body-leading: var(--leading-s);
+  --text-heading-size: var(--size-s);      /* About, Contact */
+  --text-heading-leading: var(--leading-s);
+  --text-nav-size: var(--size-s);          /* top navigation */
+  --text-nav-leading: var(--leading-s);
+  --text-button-size: var(--size-s);       /* Close, mobile menu */
+  --text-button-leading: var(--leading-s);
+  --text-caption-size: var(--size-s);      /* 1/4 on touch screens, © 2026 */
+  --text-caption-leading: var(--leading-s);
+  --text-cursor-size: var(--size-xs);      /* 1/4 that follows the mouse */
+  --text-cursor-leading: var(--leading-xs);
+
+  /* ---------- States ----------
+     weight: var(--font-weight-regular) or var(--font-weight-strong)
+     style:  normal or italic */
+  --name-weight: var(--font-weight-strong);         /* Yousri Cherif */
+  --name-case: uppercase;                           /* YOUSRI CHERIF; none for normal case */
+  --heading-weight: var(--font-weight-strong);      /* About, Contact */
+  --nav-current-weight: var(--font-weight-strong);  /* current page */
+  --nav-current-style: italic;
+  --project-hover-style: italic;                    /* hovered project */
+
+  /* ---------- Layout ---------- */
+  --grid-columns: 12;
+  --space-margin: 20px;     /* outer page margin */
+  --space-gutter: 24px;     /* gap between grid columns */
+  --space-page-top: 148px;  /* where Index and Info content starts */
+  --space-page-bottom: 80px;
+  --space-section: 48px;    /* between About and Contact */
+  --space-paragraph: 16px;  /* between paragraphs */
+  --space-stage: 72px;      /* Home image distance from top and bottom (36px clear of nav and counter) */
+  --space-project-gap: 16vh;  /* between images on a project page */
+  --space-project-end: 50vh;  /* empty space before the next projects */
+  --space-title: 96px; /* between a title and its images: "Related projects" and the previews, the last project image and the project name */
+
+  --content-column-start: 7; /* Index list and Info text */
+  --info-column-span: 4;
+  --preview-column-start: 5; /* Index hover preview */
+  --preview-column-span: 2;
+
+  /* ---------- Components ---------- */
+  /* The nav floats over photos on project pages. Paper-colored text
+     with a difference blend reads black on white and inverts over
+     photos, as on anadominguez.es. */
+  --nav-color: var(--color-paper);
+  --nav-blend: difference;
+
+  --project-thumb-height: 280px; /* next-project previews at the end of a project */
+
+  --bracket-gap: 1px;    /* between a word and its ( ) */
+
+  /* The counter cursor is paper-colored and inverts what's under it:
+     black on white, light on dark photos. */
+  --cursor-color: var(--color-paper);
+  --cursor-blend: difference;
+
+  --hit-area: 44px; /* minimum tap target */
+}
+
+/* ---------- Small screens ----------
+   CSS can't use a variable in a media query, so the 767px breakpoint
+   is also written in site.css. Change both together. */
+@media (max-width: 767px) {
+  :root {
+    --grid-columns: 1;
+    --project-thumb-height: 200px; /* two previews side by side */
+    --space-page-top: 112px;
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "projects": [
+    {
+      "name": "Alaia",
+      "type": "personal",
+      "status": "shown",
+      "images": [
+        "/images/alaia-13.jpg",
+        "/images/alaia-02.jpg",
+        "/images/alaia-01.jpg",
+        "/images/alaia-04.jpg",
+        "/images/alaia-05.jpg",
+        "/images/alaia-03.jpg",
+        "/images/alaia-06.jpg",
+        "/images/alaia-08.jpg",
+        "/images/alaia-09.jpg",
+        "/images/alaia-10.jpg",
+        "/images/alaia-07.jpg",
+        "/images/alaia-11.jpg",
+        "/images/alaia-12.jpg"
+      ],
+      "preview": "/images/alaia-10.jpg"
+    },
+    {
+      "name": "Brothers",
+      "type": "personal",
+      "status": "shown",
+      "images": [
+        "/images/wael-alaa-01.jpg"
+      ]
+    },
+    {
+      "name": "White Suit",
+      "type": "editorial",
+      "status": "shown",
+      "images": [
+        "/images/charlotte-02.jpg",
+        "/images/charlotte-01.jpg"
+      ]
+    },
+    {
+      "name": "Red Door",
+      "type": "editorial",
+      "status": "shown",
+      "images": [
+        "/images/annie-01.jpg"
+      ]
+    },
+    {
+      "name": "Nihed",
+      "type": "personal",
+      "status": "hidden",
+      "images": [
+        "/images/nihed-01.jpg"
+      ]
+    },
+    {
+      "name": "Green Sweater",
+      "type": "personal",
+      "status": "hidden",
+      "images": [
+        "/images/walid-01.jpg"
+      ]
+    },
+    {
+      "name": "Sasha",
+      "type": "editorial",
+      "status": "shown",
+      "images": [
+        "/images/sasha-01.jpg",
+        "/images/sasha-02.jpg"
+      ]
+    },
+    {
+      "name": "Ameni",
+      "type": "personal",
+      "status": "shown",
+      "images": [
+        "/images/ameni-01.jpg",
+        "/images/ameni-02.jpg"
+      ]
+    },
+    {
+      "name": "Wael",
+      "type": "personal",
+      "status": "shown",
+      "images": [
+        "/images/wael-02.jpg",
+        "/images/wael-03.jpg"
+      ]
+    },
+    {
+      "name": "Abdou",
+      "type": "personal",
+      "status": "hidden",
+      "images": [
+        "/images/abdou-01.jpg"
+      ]
+    },
+    {
+      "name": "Achref",
+      "type": "personal",
+      "status": "hidden",
+      "images": [
+        "/images/achref-01.jpg"
+      ]
+    }
+  ]
+}

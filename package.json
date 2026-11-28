@@ -1,0 +1,14 @@
+{
+  "name": "yousricherif-site",
+  "private": true,
+  "description": "Portfolio of Yousri Cherif. Static site built with Eleventy.",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve --port=4321",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.8",
+    "@11ty/eleventy-img": "7.1.1"
+  }
+}

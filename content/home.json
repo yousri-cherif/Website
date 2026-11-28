@@ -1,0 +1,28 @@
+{
+  "images": [
+    {
+      "image": "/images/wael-01.jpg",
+      "alt": "Wael"
+    },
+    {
+      "image": "/images/alaia-06.jpg",
+      "alt": "alaia"
+    },
+    {
+      "image": "/images/annie-01.jpg",
+      "alt": "Annie"
+    },
+    {
+      "image": "/images/abdou-01.jpg",
+      "alt": "Abdou"
+    },
+    {
+      "image": "/images/alaia-10.jpg",
+      "alt": "Alaia"
+    },
+    {
+      "image": "/images/wael-alaa-01.jpg",
+      "alt": "Brothers"
+    }
+  ]
+}

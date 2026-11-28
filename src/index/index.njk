@@ -1,0 +1,14 @@
+---
+layout: base.njk
+title: Index
+description: "Projects by Yousri Cherif: editorial, commercial and personal work."
+---
+    <main class="grid page">
+      <div class="preview" aria-hidden="true"><img alt="" hidden /></div>
+
+      <ul class="projects">
+        {%- for project in projects %}
+        <li data-preview="{{ project.preview }}"><a href="/projects/{{ project.slug }}/">{{ project.name }}, {{ project.type }}</a></li>
+        {%- endfor %}
+      </ul>
+    </main>
