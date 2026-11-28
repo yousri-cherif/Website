@@ -345,9 +345,18 @@ body {
   padding: 0 var(--space-margin);
 }
 
+/* Previews have a fixed height (token). If a screen is too narrow for
+   the row, they shrink to fit inside the margins instead of overflowing:
+   the links may shrink, and each photo scales down within its link. */
+.project__more a {
+  min-width: 0;
+}
+
 .project__more img {
   height: var(--project-thumb-height);
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* How many previews show: 4, then 3 on medium screens, 2 on small ones
