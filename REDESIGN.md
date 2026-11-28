@@ -18,9 +18,11 @@ The Figma file (Website 2.0) is the visual reference.
 
 **Project** (opened from Index, at `/projects/<slug>/`)
 - Images scroll vertically, centered, each fitted in a frame one screen tall (portrait and landscape alike), with about a sixth of a screen between them.
-- After the last image, half a screen of white, then other projects as previews in a row, exactly in the middle of the screen, with "Related projects" (body text, like the Index list) centered 128px above them: 4 on large screens, 3 on medium ones (up to 1023px), 2 on phones. Fixed heights (280px, 200px on phones); on very narrow screens they shrink to stay inside the margins. Picked at random on each visit (never the current one). Clicking one opens that project. Without JavaScript, the next ones in the list show.
+- After the last image, half a screen of white, then other projects as previews in a row, exactly in the middle of the screen, with "Related projects" (body text, like the Index list) centered 96px above them: 4 on large screens, 3 on medium ones (up to 1023px), 2 on phones. Fixed heights (280px, 200px on phones); on very narrow screens they shrink to stay inside the margins. Picked at random on each visit (never the current one). Clicking one opens that project. Without JavaScript, the next ones in the list show.
 - Scrolled to the very end, only those previews are visible, centered on an otherwise white screen.
 - The nav stays fixed on top.
+- Large screens (1024px and up): the project name at the bottom center, in body text. It stays at the bottom of the screen while the images scroll; once its place comes into view it scrolls up with the last image, resting 96px below it (the same gap as between "Related projects" and the previews) like a closing line, so the Related projects screen has no extra text. White with a "difference" blend, like the nav. Hidden on smaller screens.
+- With a mouse, the pointer is the image counter, the same one as on Home (3/13): it shows the image at the middle of the screen and updates while scrolling, up or down. Over links (nav, Related projects) the normal pointer shows.
 
 **Info**
 - No photo.
@@ -65,15 +67,15 @@ The Figma file (Website 2.0) is the visual reference.
     - Install or update it on a Mac: copy the `.workflow` to `~/Library/Services/`. It expects the repo at `~/Developer/Website`.
   - Names: lowercase with dashes, `project-number.jpg` (e.g. `alaia-01.jpg`). Order is set in the CMS, not by the number.
   - The build stops if an original is over 10 MB (`lib/check-images.js`), so camera files never land in Git's history.
-- One script for all pages: `src/js/site.js` (mobile menu, Home click, Index hover).
-- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too: right and up go forward (the counter goes up), left and down go back. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav it returns to normal. On touch screens the counter stays at the bottom center.
+- One script for all pages: `src/js/site.js` (mobile menu, Home click, Index hover, related projects shuffle, project counter).
+- Home: clicking the left half of the screen goes to the previous image, the right half to the next. Arrow keys work too: right and up go forward (the counter goes up), left and down go back. With a mouse, the cursor is replaced by the counter (1/4) that follows it and inverts over photos; over the nav and links it returns to normal (shared with project pages). On touch screens the counter stays at the bottom center.
 - Preview on your Mac: run `npm start` in the project folder, then open http://localhost:4321. It rebuilds and reloads on every change.
 
 ## Code rules
 - Clean over quick: no patches on patches. When something changes, restructure so the code reads as if it was written that way from the start.
 - No raw values in `site.css`: add or reuse a token.
 - CSS order: reset, base, nav, bottom bar, Home, Index and Info, project, small screens.
-- JS: one function per feature (`initMenu`, `initHome`, `initIndexPreview`). Use CSS instead of JS wherever CSS can do it (hover states, for example).
+- JS: one function per feature (`initMenu`, `initHome`, `initIndexPreview`, `initProjectSuggestions`, `initProjectCounter`). Use CSS instead of JS wherever CSS can do it (hover states, for example).
 - Small commits with clear messages.
 
 ## Workflow

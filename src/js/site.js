@@ -5,6 +5,7 @@ initMenu();
 initHome();
 initIndexPreview();
 initProjectSuggestions();
+initProjectCounter();
 
 // Small screens: Menu opens a full-screen menu and turns into Close.
 // The visible word is the button's name, so only aria-expanded changes.
@@ -24,15 +25,14 @@ function initMenu() {
 }
 
 // Home: click the left half for the previous image, the right half for the next.
-// With a mouse, the counter follows the pointer (see .cursor in site.css).
+// With a mouse, the counter is the pointer (see createCounterCursor).
 function initHome() {
   const stage = document.querySelector(".stage");
   if (!stage) return;
 
   const images = [...stage.querySelectorAll("img")];
   const counter = document.querySelector(".counter");
-  const cursor = createCursor();
-  const isOverNav = (target) => target.closest(".nav, .menu");
+  const cursor = createCounterCursor();
   let current = 0;
 
   const show = (index) => {
@@ -43,7 +43,7 @@ function initHome() {
   };
 
   document.addEventListener("click", (e) => {
-    if (isOverNav(e.target)) return;
+    if (isOverControl(e.target)) return;
     show(e.clientX < window.innerWidth / 2 ? current - 1 : current + 1);
   });
 
@@ -53,25 +53,35 @@ function initHome() {
     if (e.key in steps) show(current + steps[e.key]);
   });
 
+  show(0);
+}
+
+// The counter that replaces the mouse pointer (Home, project pages).
+// It follows the mouse and steps aside over anything clickable, where
+// the normal pointer shows. CSS shows it only with a mouse
+// (.has-counter-cursor in site.css). The caller sets its text.
+function createCounterCursor() {
+  const cursor = document.createElement("div");
+  cursor.className = "cursor";
+  cursor.setAttribute("aria-hidden", "true");
+  document.body.append(cursor);
+
   document.addEventListener("mousemove", (e) => {
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
-    cursor.classList.toggle("is-visible", !isOverNav(e.target));
+    cursor.classList.toggle("is-visible", !isOverControl(e.target));
   });
 
   document.documentElement.addEventListener("mouseleave", () => {
     cursor.classList.remove("is-visible");
   });
 
-  show(0);
+  return cursor;
 }
 
-function createCursor() {
-  const cursor = document.createElement("div");
-  cursor.className = "cursor";
-  cursor.setAttribute("aria-hidden", "true");
-  document.body.append(cursor);
-  return cursor;
+// Links, buttons and the nav keep the normal pointer.
+function isOverControl(target) {
+  return target.closest("a, button, .nav, .menu");
 }
 
 // Index: hovering a project shows its preview image. The italic is pure CSS.
@@ -100,6 +110,25 @@ function initProjectSuggestions() {
   if (!list) return;
 
   list.append(...shuffle([...list.querySelectorAll("a")]));
+}
+
+// Project page: the counter pointer (3/13) shows the image at the middle
+// of the screen. Between two images it keeps the one just passed.
+function initProjectCounter() {
+  const images = [...document.querySelectorAll(".project__images img")];
+  if (!images.length) return;
+
+  const cursor = createCounterCursor();
+
+  function update() {
+    const middle = window.innerHeight / 2;
+    const reached = images.filter((image) => image.getBoundingClientRect().top <= middle).length;
+    cursor.textContent = `${Math.max(reached, 1)}/${images.length}`;
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 }
 
 // Fisher–Yates: every order is equally likely.

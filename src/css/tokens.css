@@ -67,7 +67,7 @@
   --space-stage: 72px;      /* Home image distance from top and bottom (36px clear of nav and counter) */
   --space-project-gap: 16vh;  /* between images on a project page */
   --space-project-end: 50vh;  /* empty space before the next projects */
-  --space-related-label: 128px; /* between "Related projects" and the previews */
+  --space-title: 96px; /* between a title and its images: "Related projects" and the previews, the last project image and the project name */
 
   --content-column-start: 7; /* Index list and Info text */
   --info-column-span: 4;

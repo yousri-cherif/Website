@@ -86,6 +86,25 @@ body {
   padding: 0 var(--space-margin);
 }
 
+/* Two items meeting at the middle of the page grid (columns 5–8): the
+   first ends where column 6 ends, the second starts where column 7
+   starts, one gutter apart, lined up with the page content. Used for
+   Index / Info. */
+.center-pair {
+  grid-column: 5 / span 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--space-gutter);
+}
+
+.center-pair > :first-child {
+  justify-self: end;
+}
+
+.center-pair > :last-child {
+  justify-self: start;
+}
+
 /* ---------- Nav ---------- */
 
 .nav {
@@ -108,24 +127,11 @@ body {
   font-weight: var(--name-weight);
 }
 
-/* Index and Info sit on the page columns: Index ends where column 6
-   ends (the Index preview's right edge), Info starts where column 7
-   starts (the page content). The two halves of columns 5–8 are
-   exactly columns 5–6 and 7–8. Their ( ) hang outside the words. */
+/* Index and Info: a center pair (see Base), so Index ends at the
+   Index preview's right edge and Info starts with the page content.
+   Their ( ) hang outside the words. */
 .nav__links {
-  grid-column: 5 / span 4;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--space-gutter);
   white-space: nowrap;
-}
-
-.nav__links > :first-child {
-  justify-self: end;
-}
-
-.nav__links > :last-child {
-  justify-self: start;
 }
 
 .nav__role {
@@ -242,19 +248,21 @@ body {
   object-fit: contain;
 }
 
-/* Counter cursor: replaces the mouse pointer on Home.
-   Touch screens keep the counter at the bottom instead. */
+/* Counter cursor: replaces the mouse pointer on pages with the
+   has-counter-cursor class (Home, project pages). Links keep their
+   pointer, the nav the normal arrow. Only with a mouse: on touch
+   screens Home keeps its counter at the bottom instead. */
 .cursor {
   display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .home {
+  .has-counter-cursor {
     cursor: none;
   }
 
-  .home .nav,
-  .home .menu {
+  .has-counter-cursor .nav,
+  .has-counter-cursor .menu {
     cursor: default;
   }
 
@@ -334,6 +342,9 @@ body {
    large empty space, the next projects sit alone in the center of
    the last screen. */
 
+/* Each image gets a frame one screen tall (like the Home stage) and is
+   fitted inside it, so portrait and landscape both fit, and the page
+   never jumps while images load. */
 .project__images {
   display: flex;
   flex-direction: column;
@@ -342,14 +353,31 @@ body {
   padding: var(--space-stage) var(--space-margin) 0;
 }
 
-/* Each image gets a frame one screen tall (like the Home stage) and is
-   fitted inside it, so portrait and landscape both fit, and the page
-   never jumps while images load. */
 .project__images img {
   width: 100%;
-  height: calc(100vh - 2 * var(--space-stage));
   height: calc(100svh - 2 * var(--space-stage));
   object-fit: contain;
+}
+
+/* Project name (large screens only), at the bottom center. Its place
+   in the page is right below the last image, as far from it as
+   "Related projects" is from the previews; "sticky" holds it at the
+   bottom of the screen until that place scrolls into view, then it
+   leaves with the last image, like a closing line. Readable over
+   photos like the nav. */
+.project__caption {
+  position: sticky;
+  bottom: var(--space-margin);
+  margin-top: var(--space-title);
+  text-align: center;
+  color: var(--nav-color);
+  mix-blend-mode: var(--nav-blend);
+}
+
+@media (max-width: 1023px) {
+  .project__caption {
+    display: none;
+  }
 }
 
 /* The last screen, on an otherwise white screen: the previews sit
@@ -367,7 +395,7 @@ body {
 
 .project__more-title {
   align-self: end;
-  padding-bottom: var(--space-related-label);
+  padding-bottom: var(--space-title);
 }
 
 .project__more-list {

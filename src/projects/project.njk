@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+bodyClass: has-counter-cursor
 pagination:
   data: projects
   size: 1
@@ -24,6 +25,12 @@ eleventyComputed:
         <img src="{{ image }}" alt="{{ project.name }}, image {{ loop.index }} of {{ project.images | length }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async" />
         {%- endfor %}
       </div>
+
+      {#- Large screens: the project name at the bottom center while the
+          images scroll, then resting below the last image (see
+          site.css). The image counter is the mouse pointer. The heading
+          already names the project, so screen readers skip this. #}
+      <p class="project__caption" aria-hidden="true">{{ project.name }}</p>
 
       <section class="project__more">
         <h2 class="project__more-title" id="related">Related projects</h2>
